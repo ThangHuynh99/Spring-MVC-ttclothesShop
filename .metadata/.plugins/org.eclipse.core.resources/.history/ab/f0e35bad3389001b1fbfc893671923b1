@@ -1,0 +1,23 @@
+package com.laptrinhjavaweb.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "productcolor")
+public class ProductColorEntity extends BaseEntity{
+	
+	@ManyToMany(mappedBy = "colors")
+	private List<ProductSizeEntity> sizes = new ArrayList<>();
+	
+	@Column(name = "color", length = 50)
+	private String color;
+	
+	@Column(name = "code", length = 50)
+	private String code;
+}
