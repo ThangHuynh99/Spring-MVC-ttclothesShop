@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC"/>
+			<item value="E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc"/>
 			<item value="E:\SPRING COURSE\Spring test\Learn-java-Spring-MVC"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -12,5 +14,9 @@
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 </section>
