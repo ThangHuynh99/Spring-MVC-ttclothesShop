@@ -10,30 +10,39 @@ import javax.persistence.Table;
 @Table(name = "catalogType")
 public class CatalogTypeEntity extends BaseEntity{
 	
-	@Column(name = "detailproducttype")
-	private String detailProductType;
+	@Column(name = "catalogTypeCode")
+	private String catalogTypeCode;
 	
-	@Column(name = "detailproductname")
-	private String detailProductName;
+	@Column(name = "catalogTypeName")
+	private String catalogTypeName;
 	
 	@ManyToOne
 	@JoinColumn(name = "catalog_id")
 	private CatalogEntity catalogs;
 
-	public String getDetailProductType() {
-		return detailProductType;
+	
+	public String getCatalogTypeCode() {
+		return catalogTypeCode;
 	}
 
-	public void setDetailProductType(String detailProductType) {
-		this.detailProductType = detailProductType;
+	public void setCatalogTypeCode(String catalogTypeCode) {
+		this.catalogTypeCode = catalogTypeCode;
 	}
 
-	public String getDetailProductName() {
-		return detailProductName;
+	public String getCatalogTypeName() {
+		return catalogTypeName;
 	}
 
-	public void setDetailProductName(String detailProductName) {
-		this.detailProductName = detailProductName;
+	public void setCatalogTypeName(String catalogTypeName) {
+		this.catalogTypeName = catalogTypeName;
+	}
+
+	public CatalogEntity getCatalogs() {
+		return catalogs;
+	}
+
+	public void setCatalogs(CatalogEntity catalogs) {
+		this.catalogs = catalogs;
 	}
 
 	public CatalogEntity getCatalog() {

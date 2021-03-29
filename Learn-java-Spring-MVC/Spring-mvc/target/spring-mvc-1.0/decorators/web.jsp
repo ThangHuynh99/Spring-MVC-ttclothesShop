@@ -19,8 +19,15 @@
 	<link rel="stylesheet"	href="<c:url value='/template/web/css/style.css' />" />
 	<link rel="stylesheet"	href="<c:url value='/template/web/css/responsive.css' />" />
 	<link rel="stylesheet"	href="<c:url value='/template/web/css/custom.css' />" />
+	
+	<style>
+	 .all-title-box{
+	 	background: url(<c:url value="/images/all-bg-title.jpg" />) no-repeat center center;
+	 }
+	</style>
 </head>
 <body>
+	
 	<!-- header -->
 	<%@ include file="/common/web/header.jsp"%>
 	<!-- header -->

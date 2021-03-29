@@ -18,11 +18,11 @@ public class CatalogEntity extends BaseEntity {
 	@OneToMany(mappedBy = "catalogs")
 	private List<CatalogTypeEntity> catalogTypes = new ArrayList<>();
 	
-	@Column(name = "producttype")
-	private String productType;
+	@Column(name = "catalogCode")
+	private String catalogCode;
 	
-	@Column(name = "typename")
-	private String productTypeName;
+	@Column(name = "catalogName")
+	private String catalogName;
 
 	@Column(name = "catalogImage")
 	private String catalogImage;
@@ -51,20 +51,20 @@ public class CatalogEntity extends BaseEntity {
 		this.catalogImage = catalogImage;
 	}
 
-	public String getProductType() {
-		return productType;
+	public String getCatalogCode() {
+		return catalogCode;
 	}
 
-	public void setProductType(String productType) {
-		this.productType = productType;
+	public void setCatalogCode(String catalogCode) {
+		this.catalogCode = catalogCode;
 	}
 
-	public String getProductTypeName() {
-		return productTypeName;
+	public String getCatalogName() {
+		return catalogName;
 	}
 
-	public void setProductTypeName(String productTypeName) {
-		this.productTypeName = productTypeName;
+	public void setCatalogName(String catalogName) {
+		this.catalogName = catalogName;
 	}
-	
+
 }

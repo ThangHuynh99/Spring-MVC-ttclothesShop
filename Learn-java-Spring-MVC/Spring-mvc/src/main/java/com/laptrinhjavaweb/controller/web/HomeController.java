@@ -1,5 +1,8 @@
 package com.laptrinhjavaweb.controller.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,13 +17,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.laptrinhjavaweb.dto.CatalogDTO;
+import com.laptrinhjavaweb.service.ICatalogService;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {   
-
+	@Autowired
+	private ICatalogService iCatalog;
+	
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public ModelAndView homePage() { 	  	
-        ModelAndView mav = new ModelAndView("web/home");   
+    public ModelAndView homePage() { 	
+//    	CatalogDTO catalogDTO = new CatalogDTO();
+//    	catalogDTO.setListResult(iCatalog.findAll());
+        ModelAndView mav = new ModelAndView("web/home"); 
+//        List<CatalogDTO> cate = new ArrayList<>();
+//        cate = iCatalog.findAll();
+//        cate.get(0).getCatalogName();
+        
+        mav.addObject("catalog", iCatalog.findAll());
         return mav;
     }
     

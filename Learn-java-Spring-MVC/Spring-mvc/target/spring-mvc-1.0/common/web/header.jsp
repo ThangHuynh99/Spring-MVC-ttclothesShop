@@ -1,18 +1,18 @@
 <%@ page import="com.laptrinhjavaweb.util.SecurityUtils"%>
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- --%>
+
 <!-- Start Main Top -->
 <style>
-	.logo{
-	 display: block;
-	  max-width:250px;
-	  max-height:95px;
-	  width: auto;
-	  height: auto;
-  }
+.logo {
+	display: block;
+	max-width: 250px;
+	max-height: 95px;
+	width: auto;
+	height: auto;
+}
 </style>
 <div class="main-top">
 	<div class="container-fluid">
@@ -22,12 +22,16 @@
 					<div id="offer-box" class="carouselTicker">
 						<ul class="offer-box">
 							<li><i class="fab fa-opencart"></i> Off 10%! Shop Now Man</li>
-							<li><i class="fab fa-opencart"></i> 50% - 80% off on Fashion							</li>
-							<li><i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT20</li>
+							<li><i class="fab fa-opencart"></i> 50% - 80% off on Fashion
+							</li>
+							<li><i class="fab fa-opencart"></i> 20% off Entire Purchase
+								Promo code: offT20</li>
 							<li><i class="fab fa-opencart"></i> Off 50%! Shop Now</li>
 							<li><i class="fab fa-opencart"></i> Off 10%! Shop Now Man</li>
-							<li><i class="fab fa-opencart"></i> 50% - 80% off on Fashion							</li>
-							<li><i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT20</li>
+							<li><i class="fab fa-opencart"></i> 50% - 80% off on Fashion
+							</li>
+							<li><i class="fab fa-opencart"></i> 20% off Entire Purchase
+								Promo code: offT20</li>
 							<li><i class="fab fa-opencart"></i> Off 50%! Shop Now</li>
 						</ul>
 					</div>
@@ -42,10 +46,22 @@
 				</div>
 				<div class="our-link">
 					<ul>
-						<li><a href="#">Login</a></li>
-						<li><a href="#">Register</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<security:authorize access="isAnonymous()">
+							<li><a href='<c:url value="/login"/> '>Login</a></li>
+							<li><a href='<c:url value="/register"/> '>Register</a></li>
+							<li><a href="#">Contact Us</a></li>
+						</security:authorize>
+						<security:authorize access="isAuthenticated()">
+							<li><a href="#">Xin chào, <%=SecurityUtils.getPrincipal().getFullName()%></a></li>
+							<li><a href='<c:url value="/logout"/> '>Logout</a></li>
+							<li><a href="#">Contact Us</a></li>
+						</security:authorize>
 					</ul>
+
+
+
+					
+
 				</div>
 			</div>
 		</div>
@@ -64,7 +80,8 @@
 			aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fa fa-bars"></i>
 		</button>
-		<a class="navbar-brand"  10px href="index.html"><img src="<c:url value = "" />" class="logo" alt=""></a>
+		<a class="navbar-brand" 10px href="index.html"><img
+			src="<c:url value = "" />" class="logo" alt=""></a>
 	</div>
 	<!-- End Header Navigation -->
 
@@ -165,21 +182,27 @@
 	<a href="#" class="close-side"><i class="fa fa-times"></i></a>
 	<li class="cart-box">
 		<ul class="cart-list">
-			<li><a href="#" class="photo"><img src="<c:url value="images/img-pro-01.jpg" />" class="cart-thumb" alt="" /></a>
+			<li><a href="#" class="photo"><img
+					src="<c:url value="images/img-pro-01.jpg" />" class="cart-thumb"
+					alt="" /></a>
 				<h6>
 					<a href="#">Delica omtantur </a>
 				</h6>
 				<p>
 					1x - <span class="price">$80.00</span>
 				</p></li>
-			<li><a href="#" class="photo"><img src="<c:url value="images/img-pro-02.jpg" />" class="cart-thumb" alt="" /></a>
+			<li><a href="#" class="photo"><img
+					src="<c:url value="images/img-pro-02.jpg" />" class="cart-thumb"
+					alt="" /></a>
 				<h6>
 					<a href="#">Omnes ocurreret</a>
 				</h6>
 				<p>
 					1x - <span class="price">$60.00</span>
 				</p></li>
-			<li><a href="#" class="photo"><img src="<c:url value="images/img-pro-03.jpg" />" class="cart-thumb" alt="" /></a>
+			<li><a href="#" class="photo"><img
+					src="<c:url value="images/img-pro-03.jpg" />" class="cart-thumb"
+					alt="" /></a>
 				<h6>
 					<a href="#">Agam facilisis</a>
 				</h6>

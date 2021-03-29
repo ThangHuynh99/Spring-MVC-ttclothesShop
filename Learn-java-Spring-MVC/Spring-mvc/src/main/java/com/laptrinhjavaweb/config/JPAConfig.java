@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = "com.laptrinhjavaweb.repository")
 @EnableTransactionManagement //bat tinh nang quan ly transaction
 public class JPAConfig {
-	
+		
 	//cai dat entity manager factory, entity manager factory dung de open connection.
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

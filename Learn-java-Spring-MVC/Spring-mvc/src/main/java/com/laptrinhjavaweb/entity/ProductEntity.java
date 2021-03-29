@@ -40,6 +40,7 @@ public class ProductEntity extends BaseEntity {
 	@JoinColumn(name = "catalog_id")
 	private CatalogEntity catalog;
 
+	
 	// quan he voi bang image
 	@OneToMany(mappedBy = "product") // duoc khai bao o bang nhieu (ProductImageEntity)
 	private List<ProductImageEntity> image = new ArrayList<>();

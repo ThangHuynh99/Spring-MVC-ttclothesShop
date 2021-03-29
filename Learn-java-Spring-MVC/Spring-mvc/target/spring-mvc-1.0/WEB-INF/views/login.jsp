@@ -53,7 +53,7 @@
 						<div>
 							<input type="submit" name="submit" value="login" />
 							<button>
-								<a href='<c:url value="/register"/>'>Register</a>
+								<a style="width: 25px; height: 25px" href='<c:url value="/register"/>'>Register</a>
 							</button>
 						</div>
 					</form>
