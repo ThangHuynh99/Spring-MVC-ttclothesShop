@@ -231,10 +231,10 @@
 														<div class="type-lb">
 															<p class="sale"></p>
 														</div>
-														<c:forEach var="ite" items="${item.getProductImage()}">
-														<img src="images/products/${ite.getFile() }" class="img-fluid"
+														 <c:forEach var="ite" items="${item.getProductImage()}"> 
+														<img src="<c:url value='/images/products/${ite.getFile() }'/>" class="img-fluid"
 															alt="Image">
-														</c:forEach>
+														</c:forEach> 
 														<div class="mask-icon">
 															<ul>
 																<li><a href="#" data-toggle="tooltip"
@@ -251,8 +251,8 @@
 														</div>
 													</div>
 													<div class="why-text">
-														<h4>${item.getShortDescription()}</h4>
-														<h5 id="price" >${item.getPrice()}</h5>
+														<h4><a href="<c:url value="/product/${item.getProductCode()}"/>" >${item.getShortDescription()}</a></h4>
+														<h5 name="price" value="${item.getPrice()}">${item.getVnd()}</h5>
 													</div>
 												</div>
 											</div>

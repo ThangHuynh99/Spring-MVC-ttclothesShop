@@ -31,6 +31,10 @@ public class ProductEntity extends BaseEntity {
 	@Column(name = "price")
 	private Double price;
 
+	@Column(name = "productCode")
+	private String productCode;
+	
+	
 	// quan he voi bang order
 	@ManyToMany(mappedBy = "products")
 	private List<OrderEntity> orders = new ArrayList<>();
@@ -147,6 +151,14 @@ public class ProductEntity extends BaseEntity {
 
 	public void setView(Long view) {
 		this.view = view;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 
 }

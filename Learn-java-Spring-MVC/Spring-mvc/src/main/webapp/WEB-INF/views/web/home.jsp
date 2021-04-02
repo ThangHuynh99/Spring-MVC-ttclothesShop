@@ -84,10 +84,10 @@
 					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="shop-cat-box">
 							<img class="img-fluid" src="${item.getCatalogImage()}" alt="" />
-							<c:url var="editURL" value="/product">
-								<c:param name="id" value="${item.getId()}" />
+							<c:url var="productURL" value="/collection/${item.getCatalogCode() }">
+								 <%-- <c:param name="id" value="${item.getId()}" />  --%>
 							</c:url>
-							<a class="btn hvr-hover" href='${editURL }'>${item.getCatalogName()}</a>
+							<a class="btn hvr-hover" href='${productURL}'>${item.getCatalogName()}</a>
 						</div>
 					</div>
 				</c:forEach>

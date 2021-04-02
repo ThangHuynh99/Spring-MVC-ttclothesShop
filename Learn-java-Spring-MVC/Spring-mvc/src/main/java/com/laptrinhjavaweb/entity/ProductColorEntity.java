@@ -15,6 +15,7 @@ public class ProductColorEntity extends BaseEntity{
 	@ManyToMany(mappedBy = "colors")
 	private List<ProductSizeEntity> sizes = new ArrayList<>();
 	
+	
 	@Column(name = "color", length = 50)
 	private String color;
 	

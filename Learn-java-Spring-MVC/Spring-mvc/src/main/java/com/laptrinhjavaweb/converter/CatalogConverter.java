@@ -16,4 +16,9 @@ public class CatalogConverter {
 		CatalogDTO catalogDTO = mapper.map(entity, CatalogDTO.class);
 		return catalogDTO;
 	}
+	
+	public CatalogEntity toEntity(CatalogDTO catalog) {
+		CatalogEntity entity = mapper.map(catalog, CatalogEntity.class);
+		return entity;
+	}
 }

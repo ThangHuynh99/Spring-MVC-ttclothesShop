@@ -9,9 +9,44 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 	private String shortDescription;
 	private Long view;
 	private String price;
+	private String productCode;
+	private String vnd;
 	private List<ProductImageDTO> image = new ArrayList<>();
-
+	private List<ProductSizeDTO> size = new ArrayList<>();
 	
+	
+	public List<ProductSizeDTO> getSize() {
+		return size;
+	}
+
+	public void setSize(List<ProductSizeDTO> size) {
+		this.size = size;
+	}
+
+	public String getVnd() {
+		return vnd;
+	}
+
+	public void setVnd(String vnd) {
+		this.vnd = vnd;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
+	public List<ProductImageDTO> getImage() {
+		return image;
+	}
+
+	public void setImage(List<ProductImageDTO> image) {
+		this.image = image;
+	}
+
 	public List<ProductImageDTO> getProductImage() {
 		return image;
 	}

@@ -20,10 +20,11 @@ public class ProductConverter {
 		Locale localeVN = new Locale("vi", "VN");
 		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
 		if(product.getPrice() != 0) {
-			productDTO.setPrice(currencyVN.format(product.getPrice()));
+			productDTO.setVnd((currencyVN.format(product.getPrice())));
 		} else {
-			productDTO.setPrice(currencyVN.format(0));
+			productDTO.setVnd(currencyVN.format(0));
 		}
 		return productDTO;
 	}
+	
 }

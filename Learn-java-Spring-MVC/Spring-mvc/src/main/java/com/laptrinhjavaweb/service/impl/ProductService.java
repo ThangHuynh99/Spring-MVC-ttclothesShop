@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.converter.ProductConverter;
 import com.laptrinhjavaweb.dto.ProductDTO;
+import com.laptrinhjavaweb.entity.CatalogEntity;
 import com.laptrinhjavaweb.entity.ProductEntity;
+import com.laptrinhjavaweb.repository.CatalogRepository;
 import com.laptrinhjavaweb.repository.ProductRepository;
 import com.laptrinhjavaweb.service.IProductService;
 
@@ -19,17 +21,24 @@ public class ProductService implements IProductService{
 	private ProductRepository productRepository;
 	@Autowired
 	private ProductConverter productConverter;
+	@Autowired
+	private CatalogRepository catalogRepository;
 	
 	@Override
-	public List<ProductDTO> findByCatalogId(Long id) {
+	public List<ProductDTO> findByCatalogId(String name) {
 		List<ProductDTO> productDTO = new ArrayList<>();
-		List<ProductEntity> productEntity = productRepository.findByCatalogId(id);
-		for(ProductEntity item: productEntity) {
-			
+		List<CatalogEntity> catalog = catalogRepository.findByCatalogCode(name);
+		List<ProductEntity> productEntity = productRepository.findByCatalogId(catalog.get(0).getId());
+		for(ProductEntity item: productEntity) {		
 			productDTO.add(productConverter.toDTO(item));
-			
 		}
 		return productDTO;
+	}
+
+	@Override
+	public ProductDTO findByProductCode(String productCode) {
+		ProductEntity productEntity = productRepository.findByProductCode(productCode);
+		return 	productConverter.toDTO(productEntity);
 	}
 	
 }
