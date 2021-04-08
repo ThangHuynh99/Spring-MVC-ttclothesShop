@@ -34,11 +34,13 @@ public class ProductEntity extends BaseEntity {
 	@Column(name = "productCode")
 	private String productCode;
 	
+	@Column(name = "productColor")
+	private String productColor;
 	
-	// quan he voi bang order
-	@ManyToMany(mappedBy = "products")
-	private List<OrderEntity> orders = new ArrayList<>();
-
+	// quan he voi bang product_order
+	@OneToMany(mappedBy = "products")
+	private List<ProductOrderEntity> product_order = new ArrayList<>();
+	
 	// quan he voi bang catalog
 	@ManyToOne
 	@JoinColumn(name = "catalog_id")
@@ -71,14 +73,6 @@ public class ProductEntity extends BaseEntity {
 
 	public void setPrice(Double price) {
 		this.price = price;
-	}
-
-	public List<OrderEntity> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<OrderEntity> orders) {
-		this.orders = orders;
 	}
 
 	public CatalogEntity getCatalog() {
@@ -161,4 +155,13 @@ public class ProductEntity extends BaseEntity {
 		this.productCode = productCode;
 	}
 
+	public String getProductColor() {
+		return productColor;
+	}
+
+	public void setProductColor(String productColor) {
+		this.productColor = productColor;
+	}
+
+	
 }

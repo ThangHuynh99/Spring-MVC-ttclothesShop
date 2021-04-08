@@ -4,17 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDTO extends AbstractDTO<ProductDTO>{
+	private String title = "product";
 	private String productName;
 	private String content;
 	private String shortDescription;
 	private Long view;
-	private String price;
+	private Double price;
 	private String productCode;
 	private String vnd;
+	private String productColor;
 	private List<ProductImageDTO> image = new ArrayList<>();
 	private List<ProductSizeDTO> size = new ArrayList<>();
 	
 	
+	public String getProductColor() {
+		return productColor;
+	}
+
+	public void setProductColor(String productColor) {
+		this.productColor = productColor;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public List<ProductSizeDTO> getSize() {
 		return size;
 	}
@@ -86,11 +104,11 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 		this.view = view;
 	}
 	
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 	
-	public void setPrice(String price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	

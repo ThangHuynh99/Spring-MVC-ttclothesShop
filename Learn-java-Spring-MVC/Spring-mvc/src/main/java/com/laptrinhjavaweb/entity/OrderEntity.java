@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,10 +21,14 @@ public class OrderEntity extends BaseEntity {
 	@JoinColumn(name = "user_id")
 	private UserEntity users;
 
-	@ManyToMany
-	@JoinTable(name = "detail_order", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-	private List<ProductEntity> products = new ArrayList<>();
+	@OneToMany(mappedBy = "order")
+	List<ProductOrderEntity> product_order = new ArrayList<>();
 	
+	@Column(name = "payment")
+	private String payment;
+	
+	@Column(name = "customerEmail", length = 100)
+	private String customerEmail;
 	
 	@Column(name = "customerName", length = 100)
 	private String customername;
@@ -67,14 +72,6 @@ public class OrderEntity extends BaseEntity {
 		this.users = users;
 	}
 
-	public List<ProductEntity> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<ProductEntity> products) {
-		this.products = products;
-	}
-
 	public String getCustomername() {
 		return customername;
 	}
@@ -105,5 +102,22 @@ public class OrderEntity extends BaseEntity {
 
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+
+	public String getPayment() {
+		return payment;
+	}
+
+	public void setPayment(String payment) {
+		this.payment = payment;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
 	}	
+	
 }

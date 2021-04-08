@@ -1,9 +1,7 @@
 INDEX VERSION 1.4+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 3658834731.index
 2036427285.index
-1695732022.index
 1359563112.index
 2633758261.index
 2730531055.index
-1695732022.index
 2382904120.index

@@ -11,7 +11,6 @@
 		<class>com.laptrinhjavaweb.entity.OrderEntity</class>
 		<class>com.laptrinhjavaweb.entity.CatalogEntity</class>
 		<class>com.laptrinhjavaweb.entity.ProductBrandEntity</class>
-		<class>com.laptrinhjavaweb.entity.ProductColorEntity</class>
 		<class>com.laptrinhjavaweb.entity.ProductImageEntity</class>
 		<class>com.laptrinhjavaweb.entity.ProductSizeEntity</class>
 		<class>com.laptrinhjavaweb.entity.PromotionEntity</class>

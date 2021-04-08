@@ -19,6 +19,7 @@
 	<link rel="stylesheet"	href="<c:url value='/template/web/css/style.css' />" />
 	<link rel="stylesheet"	href="<c:url value='/template/web/css/responsive.css' />" />
 	<link rel="stylesheet"	href="<c:url value='/template/web/css/custom.css' />" />
+	<script	src="<c:url value='/template/web/jquery/jquery.min.js' />"></script>
 	
 	<style>
 	 .all-title-box{
@@ -43,10 +44,10 @@
 	<!-- footer -->
 	
 	<!-- ALL JS FILES -->
-	<script type="text/javascript" src="<c:url value='/template/web/js/jquery-3.2.1.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/popper.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/bootstrap.min.js' />"></script>
-	<!-- ALL PLUGINS -->
+<%-- 	<script type="text/javascript" src="<c:url value='/template/web/js/jquery-3.2.1.min.js' />"></script>
+ --%>	<!-- ALL PLUGINS -->
 	<script type="text/javascript" src="<c:url value='/template/web/js/jquery.superslides.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/bootstrap-select.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/inewsticker.js' />"></script>

@@ -17,9 +17,6 @@ public class ProductSizeEntity extends BaseEntity{
 	@ManyToMany(mappedBy = "size")
 	private List<ProductEntity> products = new ArrayList<>();
 	
-	@ManyToMany
-	@JoinTable(name = "size_color", joinColumns = @JoinColumn(name = "size_id"), inverseJoinColumns = @JoinColumn(name = "color_id"))
-	private List<ProductColorEntity> colors = new ArrayList<>();
 	
 	@Column(name = "size", length = 10)
 	private String size;
@@ -35,13 +32,6 @@ public class ProductSizeEntity extends BaseEntity{
 		this.products = products;
 	}
 
-	public List<ProductColorEntity> getColors() {
-		return colors;
-	}
-
-	public void setColors(List<ProductColorEntity> colors) {
-		this.colors = colors;
-	}
 
 	public String getSize() {
 		return size;
