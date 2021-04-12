@@ -12,7 +12,7 @@
 		
 		<!-- phan quyen trang -->
 	 	<intercept-url pattern="/admin/*" access="hasAnyRole('ADMIN')"/> 		
-  		<intercept-url pattern="/home/*" access="hasAnyRole('USER')"/> 
+<!--   		<intercept-url pattern="/home/*" access="hasAnyRole('USER')"/>  -->
 		
 		<access-denied-handler error-page="/accessDenied" />
 		<form-login login-page="/login"

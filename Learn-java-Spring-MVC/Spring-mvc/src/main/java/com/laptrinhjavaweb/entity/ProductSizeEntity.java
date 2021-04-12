@@ -8,30 +8,26 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "productsize")
 public class ProductSizeEntity extends BaseEntity{
 	
-	@ManyToMany(mappedBy = "size")
-	private List<ProductEntity> products = new ArrayList<>();
-	
+	@OneToMany(mappedBy = "sizess")
+	private List<Product_Size_Entity> product_size = new ArrayList<>();
 	
 	@Column(name = "size", length = 10)
 	private String size;
 	
-	@Column(name = "quantity")
-	private Long productQuantity;
-
-	public List<ProductEntity> getProducts() {
-		return products;
+	public List<Product_Size_Entity> getProduct_size() {
+		return product_size;
 	}
 
-	public void setProducts(List<ProductEntity> products) {
-		this.products = products;
+	public void setProduct_size(List<Product_Size_Entity> product_size) {
+		this.product_size = product_size;
 	}
-
 
 	public String getSize() {
 		return size;
@@ -41,12 +37,5 @@ public class ProductSizeEntity extends BaseEntity{
 		this.size = size;
 	}
 
-	public Long getProductQuantity() {
-		return productQuantity;
-	}
-
-	public void setProductQuantity(Long productQuantity) {
-		this.productQuantity = productQuantity;
-	}
 	
 }

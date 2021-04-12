@@ -4,10 +4,10 @@ import com.laptrinhjavaweb.util.SecurityUtils;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.laptrinhjavaweb.converter.OrderConverter;
 import com.laptrinhjavaweb.dto.GioHangDTO;
@@ -16,12 +16,13 @@ import com.laptrinhjavaweb.entity.OrderEntity;
 import com.laptrinhjavaweb.entity.ProductEntity;
 import com.laptrinhjavaweb.entity.ProductOrderEntity;
 import com.laptrinhjavaweb.entity.ProductOrderKey;
-import com.laptrinhjavaweb.entity.ProductSizeEntity;
+import com.laptrinhjavaweb.entity.ProductSizeKey;
+import com.laptrinhjavaweb.entity.Product_Size_Entity;
 import com.laptrinhjavaweb.entity.UserEntity;
 import com.laptrinhjavaweb.repository.OrderRepository;
 import com.laptrinhjavaweb.repository.ProductOrderRepository;
 import com.laptrinhjavaweb.repository.ProductRepository;
-import com.laptrinhjavaweb.repository.ProductSizeRepository;
+import com.laptrinhjavaweb.repository.Product_SizeRepository;
 import com.laptrinhjavaweb.repository.UserRepository;
 import com.laptrinhjavaweb.service.IOrderService;
 
@@ -40,15 +41,14 @@ public class OrderService implements IOrderService {
 	private ProductRepository productRepository;
 	
 	@Autowired
-	private ProductSizeRepository sizeRepository;
+	private ProductOrderRepository productOrderRepository;
 	
 	@Autowired
-	private ProductOrderRepository productOrderRepository;
+	private Product_SizeRepository product_SizeRepository;
 	
 	@Transactional
 	@Override
 	public OrderDTO save(OrderDTO order, HttpSession session) {	
-		 
 		String userName = SecurityUtils.getPrincipal().getUsername();
 		UserEntity user = null;
 		OrderEntity orderEntity = orderConverter.toEntity(order);
@@ -73,27 +73,28 @@ public class OrderService implements IOrderService {
 		for(GioHangDTO gio : giohang) {
 			ProductEntity productEntity = productRepository.findOne(gio.getId());
 			long idSize = 0;
-			//tim id cua bang productSize mà muốn thay đổi số lượng của size đó.
-			for(ProductSizeEntity id : productEntity.getSize()) {
-				if(gio.getProductSize().equals(id.getSize())) {
-					idSize = id.getId();
+			//tim id cua bang productSize sau đó cùng với idProduct tìm bảng phụ để giảm số lượng.
+			for(Product_Size_Entity id : productEntity.getProduct_size()) {
+				if(gio.getProductSize().equals(id.getSizess().getSize())) {
+					idSize = id.getSizess().getId();
 					break;
 				}
 			}
 			
-			//tim size theo productId  vaf productSize
-			List<ProductSizeEntity> sizeEntity = sizeRepository.findByIdAndSize(idSize, gio.getProductSize());
-			//set lại số lượng cho sản phẩm có size ...
-			sizeEntity.get(0).setProductQuantity(sizeEntity.get(0).getProductQuantity() - gio.getProductQuantity());
-			productEntity.setSize(sizeEntity);
-			//lưu lại sản phẩm với size ... với số lượng mới.
-			productRepository.save(productEntity);
+			//Giảm số lượng của sp ở bảng phụ theo productId  và sizeID
+			ProductSizeKey productSizeKey = ProductSizeKey.getInstance();
+			productSizeKey.setSize_id(idSize);
+			productSizeKey.setProduct_id(productEntity.getId());
+			
+			Product_Size_Entity PSEntity = product_SizeRepository.findOne(productSizeKey);
+			PSEntity.setQuantity(PSEntity.getQuantity() - gio.getProductQuantity());
+			product_SizeRepository.save(PSEntity);
 			
 			//set key cho bảng ProductOrder
 			ProductOrderKey productOrderKey = ProductOrderKey.getInstance();
 			productOrderKey.setOrderId(order.getId());
 			productOrderKey.setProductId(productEntity.getId());
-			
+	
 			ProductOrderEntity productOrder = ProductOrderEntity.getInstance();
 			productOrder.setQuantity(gio.getProductQuantity());
 			productOrder.setOrder(orderEntity);
@@ -103,6 +104,8 @@ public class OrderService implements IOrderService {
 			//set lại quan hệ giữa bảng product và bảng order
 			productOrderRepository.save(productOrder);
 		}
+		session.removeAttribute("giohang");
 		return order;
 	}
+	
 }

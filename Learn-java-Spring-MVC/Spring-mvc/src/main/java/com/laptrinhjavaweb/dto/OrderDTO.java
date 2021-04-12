@@ -11,7 +11,6 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private String payment;
 	private String delivery;
 	
-	
 	public String getDelivery() {
 		return delivery;
 	}

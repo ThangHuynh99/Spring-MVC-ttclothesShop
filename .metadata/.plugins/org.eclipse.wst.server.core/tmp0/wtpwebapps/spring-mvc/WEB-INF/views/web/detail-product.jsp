@@ -107,9 +107,9 @@
 											<label class="size-label">Size</label> <select id="size"
 												class="selectpicker show-tick form-control soluong"
 												>							
-												<c:forEach var="item" items="${productDetail.getSize()}">
-													<option class="quantitySL" data-value="${item.getProductQuantity()}"
-														value="${item.getSize()}">${item.getSize()}</option>
+												<c:forEach var="item" items="${productDetail.getProduct_size()}">
+													<option class="quantitySL" data-value="${item.getQuantity()}"
+														value="${item.getSizess().getSize()}">${item.getSizess().getSize()}</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -118,7 +118,7 @@
 										<div class="form-group quantity-box">
 											<label class="control-label">Quantity</label> <input
 												id="quantity" name="quantity" value = "1" class="form-control" min=""
-												max="" type="number">
+												max="10" type="number">
 										</div>
 									</li>
 								</ul>
@@ -179,8 +179,8 @@
        }
         //  function	handleChange(){
         	  $(".soluong").change(function(){
-        		  var soluong = $(this).closest("select").find(".quantitySL").attr('data-value')
-        		  $("input[type='number']").prop('max', soluong)
+        		/*   var soluong = $(this).closest("select").find(".quantitySL").attr('data-value')
+        		  $("input[type='number']").prop('max', soluong) */
         		  $('#quantity').val(1)
         	  });
         	//$("input[type='number']").prop('max', $("#size").option.attr("name"));

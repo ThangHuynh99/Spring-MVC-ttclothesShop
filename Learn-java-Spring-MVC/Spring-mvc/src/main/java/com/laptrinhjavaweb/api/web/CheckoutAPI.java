@@ -14,8 +14,8 @@ import com.laptrinhjavaweb.service.IOrderService;
 
 @RestController
 @RequestMapping("/api")
-@SessionAttributes("giohang")
 public class CheckoutAPI {
-	
+	@Autowired
+	private IOrderService iOrderServer;
 	
 }

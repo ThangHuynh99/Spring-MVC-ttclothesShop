@@ -24,7 +24,6 @@ import com.laptrinhjavaweb.util.CheckCart;
 @RequestMapping("/api")
 @SessionAttributes("giohang")
 public class GioHangAPI {
-
 	@Autowired
 	private IOrderService iOrderServer;
 	
@@ -46,11 +45,9 @@ public class GioHangAPI {
 		checkCart.deleteItem(giohang, httpSession);
 	}
 	
-	
 	@PostMapping("/checkout")
 	public OrderDTO checkout(@RequestBody OrderDTO orderDTO, HttpSession session ) {
-		orderDTO = iOrderServer.save(orderDTO, session);
+ 		orderDTO = iOrderServer.save(orderDTO, session);
 		return orderDTO;
 	}
-	
 }

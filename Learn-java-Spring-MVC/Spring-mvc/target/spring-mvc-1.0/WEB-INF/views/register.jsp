@@ -24,35 +24,32 @@
 							<p class="justify-content-center">Please choose another username !</p>
 						</div>
 					</c:if>
-
-<!-- <script>
-	function myFunction() {
-		alert("alo");
-	}
-</script> -->
-
-					<form type="submit" method="post" action="<c:url value='/check_register'/>">
+					<c:if  test="${not empty message}">
+						<div class="alert alert-${alert}">${message}
+					</div></c:if>
+				
+					<form id = "formsubmit">
 						<div class="form-group">
 							<label style="color: black">Your fullname</label> <input type="text"
-								name="j_username" value="" placeholder="Fullname"
-								class="form-control">
+								name="fullName" value="" placeholder="Fullname"
+								class="form-control" />
 						</div>
 
 						<div class="form-group">
 							<label style="color: black">Username</label> <input
-								type="text" name="j_password" value="" placeholder="Username"
-								class="form-control">
+								type="text" name="userName" value="" placeholder="Username"
+								class="form-control" />
 						</div>
 
 						<div class="form-group">
 							<label style="color: black">Password</label> <input
-								type="password" name="j_password" value="" placeholder="Password"
-								class="form-control">
+								type="password" id = "password" name="passWord" value="" placeholder="Password"
+								class="form-control"/>
 						</div>
 
 						<!-- <input type="hidden" value="" id="page" name="page" /> -->
 						<div>
-							<input type="submit" name="submit" value="register" />
+							<input type="submit" name="register" id="register" value="register" />
 							<button>
 								<a style="width: 25px; height: 25px" href='<c:url value="/login"/>'>Login</a>
 							</button>
@@ -69,5 +66,33 @@
 		<a href="#" class="s"><i class="fab fa-instagram"></i></a>
 		<a href="#" class="s"><i class="fab fa-youtube"></i></a>
 	</div>
+	
+	<script>
+		$("#register").click(function(e){
+			e.preventDefault();
+			var data = {};
+			var formdata = $('#formsubmit').serializeArray();
+			$.each(formdata, function (i,v){
+				data[""+v.name+""] = v.value;
+			});
+			addUser(data);
+		});
+		
+		function addUser(data) {
+			$.ajax({
+				url: "/authen",
+				type: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+			    success: function (result) {
+		            alert("Đăng ký thành công !")
+		            location.href="/login"
+		        },
+		        error: function (error) {
+		            alert("Đã có lỗi xảy ra !");
+		        }
+			});
+		}
+	</script>
 </body>
 </html>

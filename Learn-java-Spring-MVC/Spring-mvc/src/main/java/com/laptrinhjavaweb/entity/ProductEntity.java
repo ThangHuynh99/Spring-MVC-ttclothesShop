@@ -51,6 +51,8 @@ public class ProductEntity extends BaseEntity {
 	@OneToMany(mappedBy = "product") // duoc khai bao o bang nhieu (ProductImageEntity)
 	private List<ProductImageEntity> image = new ArrayList<>();
 
+	
+	
 	// quan he voi bang productbrand
 	@ManyToOne
 	@JoinColumn(name = "pbrand_id")
@@ -61,11 +63,9 @@ public class ProductEntity extends BaseEntity {
 	@JoinTable(name = "product_promotion", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "promotion_id"))
 	private List<PromotionEntity> promotions = new ArrayList<>();
 
-	// quan he voi bang productsize
-	@ManyToMany
-	@JoinTable(name = "product_size", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "size_id"))
-	private List<ProductSizeEntity> size = new ArrayList<>();
-
+	// quan he voi bang product_size_entity
+	@OneToMany(mappedBy = "productss")
+	private List<Product_Size_Entity> product_size = new ArrayList<>();
 	
 	public Double getPrice() {
 		return price;
@@ -99,12 +99,20 @@ public class ProductEntity extends BaseEntity {
 		this.promotions = promotions;
 	}
 
-	public List<ProductSizeEntity> getSize() {
-		return size;
+	public List<ProductOrderEntity> getProduct_order() {
+		return product_order;
 	}
 
-	public void setSize(List<ProductSizeEntity> size) {
-		this.size = size;
+	public void setProduct_order(List<ProductOrderEntity> product_order) {
+		this.product_order = product_order;
+	}
+
+	public List<Product_Size_Entity> getProduct_size() {
+		return product_size;
+	}
+
+	public void setProduct_size(List<Product_Size_Entity> product_size) {
+		this.product_size = product_size;
 	}
 
 	public List<ProductImageEntity> getImage() {

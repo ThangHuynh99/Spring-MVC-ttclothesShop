@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ProductDTO extends AbstractDTO<ProductDTO>{
 	private String title = "product";
 	private String productName;
@@ -14,9 +15,17 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 	private String vnd;
 	private String productColor;
 	private List<ProductImageDTO> image = new ArrayList<>();
-	private List<ProductSizeDTO> size = new ArrayList<>();
+	private List<Product_Size_DTO> product_size = new ArrayList<>();
 	
 	
+	public List<Product_Size_DTO> getProduct_size() {
+		return product_size;
+	}
+
+	public void setProduct_size(List<Product_Size_DTO> product_size) {
+		this.product_size = product_size;
+	}
+
 	public String getProductColor() {
 		return productColor;
 	}
@@ -31,14 +40,6 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public List<ProductSizeDTO> getSize() {
-		return size;
-	}
-
-	public void setSize(List<ProductSizeDTO> size) {
-		this.size = size;
 	}
 
 	public String getVnd() {
