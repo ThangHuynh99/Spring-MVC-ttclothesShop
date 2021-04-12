@@ -12,6 +12,7 @@ public class ProductOrderKey implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static ProductOrderKey productOrderKey = null;
 
 	@Column(name = "product_id")
 	private Long productId;
@@ -40,7 +41,14 @@ public class ProductOrderKey implements Serializable {
 		this.orderId = orderId;
 	}
 
-	public ProductOrderKey() {		
+	public static ProductOrderKey getInstance() {
+		if(productOrderKey == null) {
+			productOrderKey = new ProductOrderKey();
+		}
+		return productOrderKey;
+	}
+	public ProductOrderKey() {	
+		
 	}
 
 	@Override

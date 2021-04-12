@@ -87,6 +87,8 @@
 							<div class="single-product-details">
 								<input type="hidden" name="id" id="id"
 									value="${productDetail.getId()}" />
+								<input type="hidden" name="code" id="code"
+								value="${productDetail.getProductCode()}" />
 								<h2 id="description">${productDetail.getShortDescription() }</h2>
 								<h5 id="price" data-value="${productDetail.getPrice()}">
 									<!-- <del>$ 60.00</del> -->
@@ -103,11 +105,10 @@
 									<li>
 										<div class="form-group size-st test">
 											<label class="size-label">Size</label> <select id="size"
-												name="size" class="selectpicker show-tick form-control"
-												onchange="handleChange()">
-												<option value="0">Size</option>
+												class="selectpicker show-tick form-control soluong"
+												>							
 												<c:forEach var="item" items="${productDetail.getSize()}">
-													<option name="${item.getProductQuantity()}"
+													<option class="quantitySL" data-value="${item.getProductQuantity()}"
 														value="${item.getSize()}">${item.getSize()}</option>
 												</c:forEach>
 											</select>
@@ -116,8 +117,8 @@
 									<li>
 										<div class="form-group quantity-box">
 											<label class="control-label">Quantity</label> <input
-												id="quantity" name="quantity" class="form-control" min=""
-												max="10" type="number">
+												id="quantity" name="quantity" value = "1" class="form-control" min=""
+												max="" type="number">
 										</div>
 									</li>
 								</ul>
@@ -145,6 +146,7 @@
          	var	productColor = $('#color').text();
          	var	productSize = $('#size').val();
          	var	productQuantity = $('#quantity').val();
+         	var productCode = $('#code').val();
          	
          	const data = {
          		id: id,
@@ -153,7 +155,8 @@
          		shortDescription: shortDescription,
          		productColor: productColor,
          		productSize: productSize,
-         		productQuantity: productQuantity
+         		productQuantity: productQuantity,
+         		productCode: productCode
          	}
          	
          	addCart(data);	         	
@@ -166,20 +169,23 @@
         		contentType: 'application/json',
         		data: JSON.stringify(data),
         		success: function (result) {
-                	console.log(result);
+                	alert("add product to cart success !");
+                	location.reload()
                },
                error: function (error) {
                	console.log(error);
                }
         	});
        }
-          function	handleChange(){
-        	  
-        	  $("#quantity").val("");
+        //  function	handleChange(){
+        	  $(".soluong").change(function(){
+        		  var soluong = $(this).closest("select").find(".quantitySL").attr('data-value')
+        		  $("input[type='number']").prop('max', soluong)
+        		  $('#quantity').val(1)
+        	  });
         	//$("input[type='number']").prop('max', $("#size").option.attr("name"));
         	//  $("input[type='number']").prop('max', document.querySelectorAll('.test [name]').dataset);
-        	 
-          }
+      //    }
          
           
         </script>

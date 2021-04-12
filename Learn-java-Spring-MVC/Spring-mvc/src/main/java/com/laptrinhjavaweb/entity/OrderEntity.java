@@ -48,6 +48,9 @@ public class OrderEntity extends BaseEntity {
 	@Column(name = "totalPrice")
 	private Long totalPrice;
 	
+	@Column(name = "delivery")
+	private String delivery;
+	
 	public Long getQuantityProduct() {
 		return quantityProduct;
 	}

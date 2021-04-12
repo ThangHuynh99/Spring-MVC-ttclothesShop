@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,60 +42,28 @@
 								</tr>
 							</thead>
 							<tbody>
+							<c:if test="${not empty giohang}">
+							<c:forEach var="item" items="${giohang}">
 								<tr>
+									<input type="hidden" class = "id" value="${item.getId() }"/>
 									<td class="thumbnail-img"><a href="#"> <img
-											class="img-fluid" src="images/img-pro-01.jpg" alt="" />
+											class="img-fluid" src="<c:url value="${item.getProductImage()}"/>" alt="" />
 									</a></td>
-									<td class="name-pr"><a href="#"> Lorem ipsum dolor sit
-											amet </a></td>
-									<td class="price-pr">
-										<p>$ 80.0</p>
+									<td class="name-pr"><a class="size-color" defaultValue="${item.getProductColor()}" data-value="${item.getProductSize()}" href="<c:url value="/product/${item.getShortDescription()}" />" > ${item.getShortDescription()} màu ${item.getProductColor()}  size  ${item.getProductSize()} </a></td>
+									<td class="price-pr" >
+										<p class="price" value="${item.getPrice()}">${item.getPrice()} đ</p>
 									</td>
-									<td class="quantity-box"><input type="number" size="4"
-										value="1" min="0" step="1" class="c-input-text qty text"></td>
+									<td class="quantity-box"><input style="width: 200px" type="number" size="4"
+									value="${item.getProductQuantity()}" id="quantity" min="1" max="10" step="1" class="c-input-text qty text quantity"></td>
 									<td class="total-pr">
-										<p>$ 80.0</p>
+										<p id="price" class="total-price" value="${item.getProductQuantity() * item.getPrice()}">${item.getProductQuantity() * item.getPrice()} đ</p> 
 									</td>
-									<td class="remove-pr"><a href="#"> <i
+									<td class="remove-pr"><button class="deleteSP"> <i
 											class="fas fa-times"></i>
-									</a></td>
+									</button></td>
 								</tr>
-								<tr>
-									<td class="thumbnail-img"><a href="#"> <img
-											class="img-fluid" src="images/img-pro-02.jpg" alt="" />
-									</a></td>
-									<td class="name-pr"><a href="#"> Lorem ipsum dolor sit
-											amet </a></td>
-									<td class="price-pr">
-										<p>$ 60.0</p>
-									</td>
-									<td class="quantity-box"><input type="number" size="4"
-										value="1" min="0" step="1" class="c-input-text qty text"></td>
-									<td class="total-pr">
-										<p>$ 80.0</p>
-									</td>
-									<td class="remove-pr"><a href="#"> <i
-											class="fas fa-times"></i>
-									</a></td>
-								</tr>
-								<tr>
-									<td class="thumbnail-img"><a href="#"> <img
-											class="img-fluid" src="images/img-pro-03.jpg" alt="" />
-									</a></td>
-									<td class="name-pr"><a href="#"> Lorem ipsum dolor sit
-											amet </a></td>
-									<td class="price-pr">
-										<p>$ 30.0</p>
-									</td>
-									<td class="quantity-box"><input type="number" size="4"
-										value="1" min="0" step="1" class="c-input-text qty text"></td>
-									<td class="total-pr">
-										<p>$ 80.0</p>
-									</td>
-									<td class="remove-pr"><a href="#"> <i
-											class="fas fa-times"></i>
-									</a></td>
-								</tr>
+								</c:forEach>
+								</c:if>
 							</tbody>
 						</table>
 					</div>
@@ -114,54 +83,146 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 col-sm-6">
-					<div class="update-box">
-						<input value="Update Cart" type="submit">
-					</div>
-				</div>
-			</div>
-
-			<div class="row my-5">
-				<div class="col-lg-8 col-sm-12"></div>
-				<div class="col-lg-4 col-sm-12">
+				<div class="col-lg-8 col-sm-8"></div>
+				<div class="col-lg-4 col-sm-8">
 					<div class="order-box">
 						<h3>Order summary</h3>
 						<div class="d-flex">
 							<h4>Sub Total</h4>
-							<div class="ml-auto font-weight-bold">$ 130</div>
+							<div class="ml-auto font-weight-bold" id="sub-total">0 đ</div>
 						</div>
 						<div class="d-flex">
 							<h4>Discount</h4>
-							<div class="ml-auto font-weight-bold">$ 40</div>
+							<div class="ml-auto font-weight-bold">0 đ</div>
 						</div>
 						<hr class="my-1">
 						<div class="d-flex">
 							<h4>Coupon Discount</h4>
-							<div class="ml-auto font-weight-bold">$ 10</div>
+							<div class="ml-auto font-weight-bold">0 đ</div>
 						</div>
 						<div class="d-flex">
 							<h4>Tax</h4>
-							<div class="ml-auto font-weight-bold">$ 2</div>
+							<div class="ml-auto font-weight-bold">0 đ</div>
 						</div>
 						<div class="d-flex">
 							<h4>Shipping Cost</h4>
-							<div class="ml-auto font-weight-bold">Free</div>
+							<div class="ml-auto font-weight-bold" value = "0">Free</div>
 						</div>
 						<hr>
 						<div class="d-flex gr-total">
 							<h5>Grand Total</h5>
-							<div class="ml-auto h5">$ 388</div>
+							<div class="ml-auto h5" value = "0" id="grand-total">0 đ</div>
 						</div>
 						<hr>
 					</div>
 				</div>
 				<div class="col-12 d-flex shopping-box">
-					<a href="checkout.html" class="ml-auto btn hvr-hover">Checkout</a>
+					<a href="<c:url value="/checkout" />" class="ml-auto btn hvr-hover">Checkout</a>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!-- End Cart -->
+	
+	<script>	
+		var tongtien = 0;
+		function calTotalPrice(){
+			$(".total-price").each(function(){
+				tongtien += parseInt($(this).attr('value'))
+				var tongtienFM = tongtien.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+				$("#sub-total").text(tongtienFM + " đ")
+				$("#grand-total").text(tongtienFM + " đ")
+				$("#grand-total").attr('value', tongtien)
+			})
+		}
+			$(".price").each(function(){
+				var giatien = parseInt($(this).text()).toString()
+				var format = giatien.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+				$(this).text(format + " đ")
+			})
+	
+			$(".total-price").each(function(){
+				var total = parseInt($(this).text()).toString()	
+				var format = total.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+				$(this).text(format + " đ")		
+				tongtien += parseInt($(this).attr('value'))
+				var tongtienFM = tongtien.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+				$("#sub-total").text(tongtienFM + " đ")
+				$("#grand-total").text(tongtienFM + " đ")
+				$("#grand-total").attr('value', tongtien)
+				//alert(tongtien)
+			})
+			
+			
+		$('.quantity').change(function(){
+			tongtien = 0 
+			var soluong = $(this).val()
+			var giatien = $(this).closest("tr").find(".price").attr("value")
+			var format = (soluong*giatien).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+			$(this).closest("tr").find(".total-price").attr('value', soluong*giatien)
+			//var format = tongtien.toFixed(3).replace(/(\d)(?=(\d{3})+\.)/g, "$1.")
+			$(this).closest("tr").find(".total-price").text(format + " đ")
+			calTotalPrice()
+			var data = {
+				productQuantity: soluong,
+				productSize: $(this).closest("tr").find(".size-color").attr('data-value'),
+				productColor: $(this).closest("tr").find(".size-color").attr('defaultValue'),
+				id: $(this).closest("tr").find(".id").val()
+			}
+			
+			$.ajax({
+				url: "/api/updateCart",
+				type: 'POST',
+        		contentType: 'application/json',
+        		data: JSON.stringify(data),
+        		success: function (result) {
+                	console.log(result)
+               },
+               error: function (error) {
+               		console.log(error)
+               }
+			})
+			//xử dụng phương pháp ajax lồng ajax để cập nhật lại số lượng cho giỏ hàng nhỏ.
+		})
+		
+		$(".deleteSP").click(function(e){
+			e.preventDefault()
+			var productColor = $(this).closest("tr").find(".size-color").attr('defaultValue')
+			var id = $(this).closest("tr").find(".id").val()
+			var productSize = $(this).closest("tr").find(".size-color").attr('data-value')
+			
+			var data = {
+				productColor: productColor,
+				id: id,
+				productSize: productSize
+			}
+		
+			$.ajax({
+				url: "/api/deleteItem",
+				type: 'POST',
+        		contentType: 'application/json',
+				data: JSON.stringify(data),
+				success: function (result) {
+                	alert("Xoa san pham thanh cong !")
+                	location.reload()
+               },
+               error: function (error) {
+               		console.log(error)
+               }
+			})
+		})
+		
+	</script>
+	<!-- những cách ngu đã thử -->
+		<!-- 	tongtien = tongtien + 1*giatien
+			var tongtienFM = tongtien.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+			$("#sub-total").text(tongtienFM + " đ")
+			$("#grand-total").text(tongtienFM + " đ")
+			$("#grand-total").attr('value', tongtien) -->
+	<!-- tongtien += (soluong*giatien)
+			var formatTT = tongtien.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+			$("#sub-total").text(formatTT + " đ")
+			$("#grand-total").text(formatTT + " đ")
+			$("#grand-total").attr('value', tongtien) -->
 </body>
 </html>

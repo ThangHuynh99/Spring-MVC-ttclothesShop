@@ -97,7 +97,7 @@
 				class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
 				<ul class="dropdown-menu">
 					<li><a href='<c:url value="/cart" /> '>Cart</a></li>
-					<li><a href=<c:url value="#" />>Checkout</a></li>
+					<li><a href=<c:url value="/checkout" />>Checkout</a></li>
 					<li><a href="my-account.html">My Account</a></li>
 				</ul></li>
 			<li class="nav-item"><a class="nav-link" href="service.html">Our
@@ -112,8 +112,10 @@
 	<div class="attr-nav">
 		<ul>
 			<li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-			<li class="side-menu"><a href="#"> <i
-					class="fa fa-shopping-bag"></i> <span class="badge">1</span>
+			<li class="side-menu"><a href="#">
+		
+			 <i	class="fa fa-shopping-bag"></i> <span class="badge">${giohang.size()}</span>
+		
 			</a></li>
 		</ul>
 	</div>
@@ -125,18 +127,25 @@
 	<a href="#" class="close-side"><i class="fa fa-times"></i></a>
 	<li class="cart-box">
 		<ul class="cart-list">
+		<c:if test="${ empty giohang}">
+			<h2>Chưa có sản phẩm nào trong giỏ hàng.</h2>
+		</c:if>
+		<c:if test="${not empty giohang}">
+			<c:forEach var="item" items="${giohang}" >
 			<li><a href="#" class="photo"><img
-					src="<c:url value="images/img-pro-01.jpg" />" class="cart-thumb"
+					src="<c:url value="${item.getProductImage()}" />" class="cart-thumb"
 					alt="" /></a>
 				<h6>
-					<a href="#">Delica omtantur </a>
+					<a href="<c:url value="/product/${item.getProductCode()}" />">${item.getShortDescription()} size ${item.getProductSize()}</a>
 				</h6>
 				<p>
-					1x - <span class="price">$80.00</span>
+					${item.getProductQuantity()}x - <span class="price">${item.getPrice()} đ</span>
 				</p></li>
-			<li class="total"><a href="#"
-				class="btn btn-default hvr-hover btn-cart">VIEW CART</a> <span
-				class="float-right"><strong>Total</strong>: $80.00</span></li>
+				<%-- <c:set var="total" value="${total += total + item.getPrice()}" /> --%>
+			<li class="total"><a href="<c:url value='/cart'/>"
+				class="btn btn-default hvr-hover btn-cart">VIEW CART</a>			
+			</c:forEach> 
+		</c:if>
 		</ul>
 	</li>
 </div>
@@ -155,7 +164,12 @@
 </div>
 <!-- End Top Search -->
 
-
+<script>
+	$(".price").each(function(){
+		var price = parseInt($(this).text()).toString.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+		$(this).text(price + " đ")
+	})
+</script>
 
 
 

@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Order_Product")
 public class ProductOrderEntity {
+	private static ProductOrderEntity productOrderEntity;
 	
 	@EmbeddedId
 	private ProductOrderKey id;
@@ -59,6 +60,13 @@ public class ProductOrderEntity {
 
 	public void setOrder(OrderEntity order) {
 		this.order = order;
+	}
+
+	public static  ProductOrderEntity getInstance() {
+		if(productOrderEntity == null) {
+			productOrderEntity = new ProductOrderEntity();
+		}
+		return productOrderEntity;
 	}
 
 	

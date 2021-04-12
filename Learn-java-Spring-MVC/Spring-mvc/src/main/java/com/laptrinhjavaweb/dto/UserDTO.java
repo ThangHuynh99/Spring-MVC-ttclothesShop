@@ -5,6 +5,7 @@ public class UserDTO extends AbstractDTO<UserDTO>{
 	public String passWord;
 	public String fullName;
 	public Integer status = 1;
+	
 	public String getUserName() {
 		return userName;
 	}

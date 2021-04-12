@@ -8,8 +8,17 @@ public class GioHangDTO {
 	private String shortDescription;
 	private String productSize;
 	private Long productQuantity;
+	private String productCode;
 	
 	
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
+	}
+
 	public String getProductImage() {
 		return productImage;
 	}

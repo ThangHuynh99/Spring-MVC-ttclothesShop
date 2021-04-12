@@ -28,23 +28,23 @@
 						<div class="alert alert-${alert}">${message}
 					</div></c:if>
 				
-					<form name = "formsubmit">
+					<form id = "formsubmit">
 						<div class="form-group">
 							<label style="color: black">Your fullname</label> <input type="text"
 								name="fullName" value="" placeholder="Fullname"
-								class="form-control">
+								class="form-control" />
 						</div>
 
 						<div class="form-group">
 							<label style="color: black">Username</label> <input
 								type="text" name="userName" value="" placeholder="Username"
-								class="form-control">
+								class="form-control" />
 						</div>
 
 						<div class="form-group">
 							<label style="color: black">Password</label> <input
 								type="password" id = "password" name="passWord" value="" placeholder="Password"
-								class="form-control">
+								class="form-control"/>
 						</div>
 
 						<!-- <input type="hidden" value="" id="page" name="page" /> -->
@@ -67,7 +67,7 @@
 		<a href="#" class="s"><i class="fab fa-youtube"></i></a>
 	</div>
 	
-	<script >
+	<script>
 		$("#register").click(function(e){
 			e.preventDefault();
 			var data = {};
@@ -80,16 +80,16 @@
 		
 		function addUser(data) {
 			$.ajax({
-				url: '/authen',
+				url: "/authen",
 				type: 'POST',
 				contentType: 'application/json',
 				data: JSON.stringify(data),
-				dataType: 'json',
 			    success: function (result) {
-		            window.location.href = "/register?message=register_success?alert=success";
+		            alert("Đăng ký thành công !")
+		            location.href="/login"
 		        },
 		        error: function (error) {
-		            window.location.href = "/register?message=error_system?alert=danger";
+		            alert("Đã có lỗi xảy ra !");
 		        }
 			});
 		}
