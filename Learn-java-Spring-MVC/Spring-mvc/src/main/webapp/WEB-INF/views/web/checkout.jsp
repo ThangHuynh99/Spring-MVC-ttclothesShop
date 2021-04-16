@@ -36,6 +36,12 @@
 									address for shipping updates.</div>
 							</div>
 							<div class="mb-3">
+								<label for="email">Số điện thoại  *</label> <input type="email"
+									class="form-control" id="phoneN" placeholder="" required>
+								<div class="invalid-feedback">Please enter a valid Phone number
+									for shipping.</div>
+							</div>
+							<div class="mb-3">
 								<label for="address">Địa chỉ nhận hàng *</label> <input type="text"
 									class="form-control" id="address" placeholder="" required>
 								<div class="invalid-feedback">Please enter your shipping
@@ -70,34 +76,30 @@
 									<div class="invalid-feedback">Zip code required.</div>
 								</div>
 							</div>
-							<hr class="mb-4">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input"
-									id="same-address">
-							</div>
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input"
-									id="save-info"> 
-							</div>
-							<hr class="mb-4">
+							
 							<div class="title">
-								<span>Payment</span>
+								<h3>Payment</h3>
 							</div>
 							<div class="d-block my-3">
 								<div class="custom-control custom-radio">
 									<input id="credit" name="paymentMethod" type="radio"
-										class="custom-control-input" checked required> <label
-										class="custom-control-label" for="credit">Credit card</label>
+										class=" paymentMethod" value="credit" checked required> <label
+										 for="credit">Credit card</label>
 								</div>
 								<div class="custom-control custom-radio">
-									<input id="debit" name="paymentMethod" type="radio"
-										class="custom-control-input" required> <label
-										class="custom-control-label" for="debit">Debit card</label>
+									<input  id="debit" name="paymentMethod" type="radio"
+										class=" paymentMethod" value="debit" required> <label
+										for="debit">Debit card</label>
 								</div>
 								<div class="custom-control custom-radio">
-									<input id="paypal" name="paymentMethod" type="radio"
-										class="custom-control-input" required> <label
-										class="custom-control-label" for="paypal">Paypal</label>
+									<input  id="paypal" name="paymentMethod" type="radio"
+										class=" paymentMethod" value="paypal" required> <label
+										 for="paypal">Paypal</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input  id="paypal" name="paymentMethod" type="radio"
+										class="paymentMethod" value="momo" required> <label
+										for="momo">Momo</label>
 								</div>
 							</div>
 							<div class="row">
@@ -158,21 +160,21 @@
 								</div>
 								<div class="mb-4">
 									<div class="custom-control custom-radio">
-										<input id="shippingOption1" name="shipping-option"
-											class="custom-control-input" checked="checked" type="radio">
-										<label class="custom-control-label" for="shippingOption1">Giao hàng cơ bản</label> <span class="float-right font-weight-bold" value="0">Miễn phí</span>
+										<input  name="shipping-option" value="giao hàng cơ bản"
+											class="shippingOption" checked type="radio">
+										<label  for="shippingOption1">Giao hàng cơ bản</label> <span class="float-right font-weight-bold" value="0">Miễn phí</span>
 									</div>
 									<div class="ml-4 mb-2 small">(3-7 ngày)</div>
 									<div class="custom-control custom-radio">
-										<input id="shippingOption2" name="shipping-option"
-											class="custom-control-input" type="radio"> <label
-											class="custom-control-label" for="shippingOption2">Giao hàng tiết kiệm</label> <span class="float-right font-weight-bold" value="25000">25.000 đ</span>
+										<input  name="shipping-option" value="giao hàng tiết kiệm"
+											class="shippingOption" type="radio"> <label
+											 for="shippingOption2">Giao hàng tiết kiệm</label> <span class="float-right font-weight-bold" value="25000">25.000 đ</span>
 									</div>
 									<div class="ml-4 mb-2 small">(2-4 ngày)</div>
 									<div class="custom-control custom-radio">
-										<input id="shippingOption3" name="shipping-option"
-											class="custom-control-input" type="radio"> <label
-											class="custom-control-label" for="shippingOption3">Giao hàng nhanh</label> <span class="float-right font-weight-bold" value = "50000">50.000 đ</span>
+										<input name="shipping-option" value="giao hàng nhanh"
+											class=" shippingOption" type="radio">
+									 <label for="shippingOption3">Giao hàng nhanh</label> <span class="float-right font-weight-bold" value = "50000">50.000 đ</span>
 									</div>
 									<div class="ml-4 mb-2 small">Giao trong ngày</div>
 								</div>
@@ -184,17 +186,19 @@
 									<h3>Thông tin sản phẩm</h3>
 								</div>
 								<c:if test="${not empty giohang}">
+								<c:forEach var="item" items="${giohang}">
 								<div class="rounded p-2 bg-light">
 									<div class="media mb-2 border-bottom">
 										<div class="media-body">
-											<a href="detail.html"> Lorem ipsum dolor sit amet</a>
+											<a href="<c:url value="/product/${item.getShortDescription()}" />" style="font-size: 15px"> ${item.getShortDescription()}</a>
 											<div class="small text-muted">
-												Price: $80.00 <span class="mx-2">|</span> Qty: 1 <span
-													class="mx-2">|</span> Subtotal: $80.00
+												Price: <span class="price">${item.getPrice()} </span> <span class="mx-2">|</span> Qty: <span class="quantity">${item.getProductQuantity()}</span> <span
+													class="mx-2">|</span> Subtotal: <span class="Subtotal" value="${item.getProductQuantity() * item.getPrice()}">${item.getProductQuantity() * item.getPrice()} đ</span>
 											</div>
 										</div>
 									</div>
 								</div>
+								</c:forEach>
 								</c:if>
 								<c:if test="${empty giohang}">
 									<h4><strong>Chưa có sản phẩm nào</strong></h4>
@@ -213,7 +217,7 @@
 								<hr class="my-1">
 								<div class="d-flex">
 									<h4>Tạm tính</h4>
-									<div class="ml-auto font-weight-bold">0 đ</div>
+									<div id="tamtinh" class="ml-auto font-weight-bold tamtinh">0 đ</div>
 								</div>
 								<div class="d-flex">
 									<h4>Giảm giá</h4>
@@ -235,7 +239,7 @@
 								<hr>
 								<div class="d-flex gr-total">
 									<h5>Tổng cộng</h5>
-									<div class="ml-auto h5">0 đ</div>
+									<div id="tongcong" value="" class="ml-auto h5">0 đ</div>
 								</div>
 								<hr>
 							</div>
@@ -251,17 +255,47 @@
 	</div>
 	<!-- End Cart -->
 	<script >
+	var totalprice = 0;
+	var totalquantity = 0;
+	
+	$(".price").each(function(){
+		var giatien = parseInt($(this).text()).toString()
+		var format = giatien.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+		$(this).text(format + " đ")
+	})
+	
+	$(".Subtotal").each(function(){
+		var giatien = parseInt($(this).text()).toString()
+		var format = giatien.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+		$(this).text(format + " đ")
+	})
+	
+	$(".quantity").each(function(){
+		var quantity = parseInt($(this).text())
+		totalquantity += quantity
+	})
+	
+	$(".Subtotal").each(function(){
+		var total = parseInt($(this).attr('value'))
+		totalprice += total
+		var tongtienFM = totalprice.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+		$("#tamtinh").text(tongtienFM + " đ")
+		$("#tongcong").text(tongtienFM + " đ")
+		$("#tongcong").attr('value', totalprice)
+				//alert(tongtien)
+	})
+			
 	$("#datHang").click(function(){
 		var data = {
-			"customerName": "Huỳnh Bá Thắng",
-			"customerPhone": "0905 548 920",
+			"customerName": $("#username").val(),
+			"customerPhone": $("#phoneN").val(),
 			"orderStatus": "1",
-			"quantityProduct": 3,
-			"totalPrice": 1900000,
-			"customerEmail": "thang.huynh304@gmail.com",
-			"customerAddress": "32 Hoàng Thế Thiện, Hòa Xuân, Cẩm Lệ, Đà Nẵng",
-			"payment": "momo",
-			"delivery": "Giao hàng cơ bản"			
+			"quantityProduct": totalquantity,
+			"totalPrice": totalprice,
+			"customerEmail": $("#email").val(),
+			"customerAddress": $("#address").val(),
+			"payment": $('input[name="paymentMethod"]:checked').val(),
+			"delivery": $('input[name="shipping-option"]:checked').val(),			
 		}
 		
 		$.ajax({
@@ -272,6 +306,7 @@
 			dataType: 'json',
 			success: function (result) {
 	          	alert("đặt hàng thành công !")
+	          	location.reload()
 	           },
 	        error: function (error) {
 	           	alert("đã có lỗi xảy ra")

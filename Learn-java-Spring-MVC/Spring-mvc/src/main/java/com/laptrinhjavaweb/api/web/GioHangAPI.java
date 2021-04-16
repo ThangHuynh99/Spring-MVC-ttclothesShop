@@ -45,9 +45,5 @@ public class GioHangAPI {
 		checkCart.deleteItem(giohang, httpSession);
 	}
 	
-	@PostMapping("/checkout")
-	public OrderDTO checkout(@RequestBody OrderDTO orderDTO, HttpSession session ) {
- 		orderDTO = iOrderServer.save(orderDTO, session);
-		return orderDTO;
-	}
+	
 }

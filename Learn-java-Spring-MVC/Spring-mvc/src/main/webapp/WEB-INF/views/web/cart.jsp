@@ -135,6 +135,7 @@
 				$("#grand-total").attr('value', tongtien)
 			})
 		}
+		
 			$(".price").each(function(){
 				var giatien = parseInt($(this).text()).toString()
 				var format = giatien.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.converter.ProductConverter;
@@ -25,10 +26,10 @@ public class ProductService implements IProductService{
 	private CatalogRepository catalogRepository;
 	
 	@Override
-	public List<ProductDTO> findByCatalogId(String name) {
+	public List<ProductDTO> findByCatalogId(String name, Pageable page) {
 		List<ProductDTO> productDTO = new ArrayList<>();
 		List<CatalogEntity> catalog = catalogRepository.findByCatalogCode(name);
-		List<ProductEntity> productEntity = productRepository.findByCatalogId(catalog.get(0).getId());
+		List<ProductEntity> productEntity = productRepository.findByCatalogId(catalog.get(0).getId(), page);
 		for(ProductEntity item: productEntity) {		
 			productDTO.add(productConverter.toDTO(item));
 		}
@@ -39,6 +40,11 @@ public class ProductService implements IProductService{
 	public ProductDTO findByProductCode(String productCode) {
 		ProductEntity productEntity = productRepository.findByProductCode(productCode);
 		return 	productConverter.toDTO(productEntity);
+	}
+
+	@Override
+	public int countTotalItem() {
+		return (int) productRepository.count();
 	}
 	
 }

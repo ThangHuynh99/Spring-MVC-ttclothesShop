@@ -18,4 +18,9 @@ public class CheckoutAPI {
 	@Autowired
 	private IOrderService iOrderServer;
 	
+	@PostMapping("/checkout")
+	public OrderDTO checkout(@RequestBody OrderDTO orderDTO, HttpSession session ) {
+ 		orderDTO = iOrderServer.save(orderDTO, session);
+		return orderDTO;
+	}
 }

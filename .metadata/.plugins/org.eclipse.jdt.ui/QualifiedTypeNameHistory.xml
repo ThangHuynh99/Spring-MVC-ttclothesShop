@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.service.IUserService"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.util.CheckCart"/>
-<fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="javax.persistence.EmbeddedId"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.mapping.JpaPersistentEntity"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.RoleRepository"/>
@@ -60,4 +53,11 @@
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.Product_Size_Entity"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductSizeKey"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
+<fullyQualifiedTypeName name="java.awt.print.Pageable"/>
+<fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.dto.ProductDTO"/>
 </qualifiedTypeNameHistroy>

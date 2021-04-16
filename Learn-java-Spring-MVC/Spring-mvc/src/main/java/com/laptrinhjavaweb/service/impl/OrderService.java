@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,21 +48,30 @@ public class OrderService implements IOrderService {
 	@Autowired
 	private Product_SizeRepository product_SizeRepository;
 	
+	//String userName = SecurityUtils.getPrincipal().getUsername();
+	String userName = null;
+	
 	@Transactional
 	@Override
 	public OrderDTO save(OrderDTO order, HttpSession session) {	
-		String userName = SecurityUtils.getPrincipal().getUsername();
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//		if(auth != null) {
+		try {
+			userName = SecurityUtils.getPrincipal().getUsername();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+	
+		
 		UserEntity user = null;
 		OrderEntity orderEntity = orderConverter.toEntity(order);
 		
 		//kiểm tra nếu tồn tại user thì lưu quan hệ giữa bảng user và order.
-		if(userName != null) {
+		if(userName != null)
 			user = userRepository.findOneByUserNameAndStatus(userName, 1);
-		}
 		
 		if(user != null) {
 			orderEntity.setUsers(user);
-			orderEntity = orderRepository.save(orderEntity);
 			order = orderConverter.toDTO(orderRepository.save(orderEntity));
 		}else {
 			order = orderConverter.toDTO(orderRepository.save(orderEntity));

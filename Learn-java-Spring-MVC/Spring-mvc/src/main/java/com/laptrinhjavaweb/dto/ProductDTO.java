@@ -66,14 +66,6 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 		this.image = image;
 	}
 
-	public List<ProductImageDTO> getProductImage() {
-		return image;
-	}
-
-	public void setProductImage(List<ProductImageDTO> image) {
-		this.image = image;
-	}
-
 	public String getProductName() {
 		return productName;
 	}
