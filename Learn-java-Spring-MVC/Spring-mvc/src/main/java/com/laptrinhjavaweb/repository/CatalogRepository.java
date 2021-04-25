@@ -9,5 +9,5 @@ import com.laptrinhjavaweb.entity.CatalogEntity;
 
 public interface CatalogRepository extends JpaRepository<CatalogEntity, Long> {
 //	@Query(value = "select id from catalog C where C.catalogName = ?1", nativeQuery = true)
-	List<CatalogEntity> findByCatalogCode(String catalogName);
+	CatalogEntity findByCatalogCode(String catalogName);	
 }

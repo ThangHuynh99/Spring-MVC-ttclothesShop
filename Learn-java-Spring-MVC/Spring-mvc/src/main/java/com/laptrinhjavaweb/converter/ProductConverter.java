@@ -27,4 +27,9 @@ public class ProductConverter {
 		return productDTO;
 	}
 	
+	public ProductEntity toEntity(ProductDTO product) {
+		ProductEntity productEntity = mapper.map(product, ProductEntity.class);
+		return productEntity;
+	}
+	
 }

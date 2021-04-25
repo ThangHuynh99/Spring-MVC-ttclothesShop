@@ -59,7 +59,6 @@
 	<script type="text/javascript" src="<c:url value='/template/web/js/form-validator.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/contact-form-script.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/template/web/js/custom.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery-ui.min.js'/>"></script>
 	<script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>"></script>
 </body>
 </html>

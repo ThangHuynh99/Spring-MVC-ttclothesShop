@@ -11,7 +11,7 @@ import com.laptrinhjavaweb.entity.ProductEntity;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Long>{
 	List<ProductEntity> findByCatalogId(Long id, Pageable page);
-	
 	//@Query(value = "SELECT d FROM product d WHERE productCode = ?1 ", nativeQuery = true)
 	ProductEntity findByProductCode(String productCode);
+	int countByCatalogId(Long id);
 }

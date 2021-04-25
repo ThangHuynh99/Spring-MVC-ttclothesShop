@@ -8,4 +8,5 @@ import com.laptrinhjavaweb.entity.ProductSizeEntity;
 
 public interface ProductSizeRepository extends JpaRepository<ProductSizeEntity, Long> {
 	List<ProductSizeEntity> findByIdAndSize(Long id, String size);
+	ProductSizeEntity findBySize(String size);
 }

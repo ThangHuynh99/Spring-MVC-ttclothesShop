@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.laptrinhjavaweb.dto.ProductDTO;
 import com.laptrinhjavaweb.service.IProductService;
 
-@Controller
+@Controller(value = "productControllerOfWeb")
 public class ProductController {
 	@Autowired
 	private IProductService iProductService;
@@ -25,7 +25,7 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView("web/product");
 		Pageable pageable = new PageRequest(page-1, 6);
 		productDTO.setPage(page);
-		productDTO.setTotalPage((int) Math.ceil((double) iProductService.countTotalItem() / 6));
+		productDTO.setTotalPage((int) Math.ceil((double) iProductService.countTotalItem(name) / 6));
 		productDTO.setListResult(iProductService.findByCatalogId(name, pageable));
 		mav.addObject("products", productDTO);
 		mav.addObject("catalogcode", name);

@@ -6,6 +6,5 @@ import com.laptrinhjavaweb.dto.CatalogDTO;
 
 public interface ICatalogService {
 	
-	
 	List<CatalogDTO> findAll();
 }

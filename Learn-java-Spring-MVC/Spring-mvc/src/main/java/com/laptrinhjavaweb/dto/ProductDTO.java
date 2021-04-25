@@ -16,8 +16,71 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 	private String productColor;
 	private List<ProductImageDTO> image = new ArrayList<>();
 	private List<Product_Size_DTO> product_size = new ArrayList<>();
+	private CatalogDTO catalog;
+	private ProductBrandDTO brands;
+	private String imageName;
+	private String imageFile;
+	private String size;
+	private String catalogCode;
+	private Long quantity;
 	
 	
+	public Long getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getCatalogCode() {
+		return catalogCode;
+	}
+
+	public void setCatalogCode(String catalogCode) {
+		this.catalogCode = catalogCode;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+	public String getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(String imageFile) {
+		this.imageFile = imageFile;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public CatalogDTO getCatalog() {
+		return catalog;
+	}
+
+	public void setCatalog(CatalogDTO catalog) {
+		this.catalog = catalog;
+	}
+
+	public ProductBrandDTO getBrands() {
+		return brands;
+	}
+
+	public void setBrands(ProductBrandDTO brands) {
+		this.brands = brands;
+	}
+
 	public List<Product_Size_DTO> getProduct_size() {
 		return product_size;
 	}
