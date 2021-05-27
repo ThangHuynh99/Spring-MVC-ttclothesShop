@@ -14,7 +14,7 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 	private String productCode;
 	private String vnd;
 	private String productColor;
-	private List<ProductImageDTO> image = new ArrayList<>();
+	private List<ProductImageDTO> productImage = new ArrayList<>();
 	private List<Product_Size_DTO> product_size = new ArrayList<>();
 	private CatalogDTO catalog;
 	private ProductBrandDTO brands;
@@ -121,13 +121,6 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 		this.productCode = productCode;
 	}
 
-	public List<ProductImageDTO> getImage() {
-		return image;
-	}
-
-	public void setImage(List<ProductImageDTO> image) {
-		this.image = image;
-	}
 
 	public String getProductName() {
 		return productName;
@@ -166,6 +159,14 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 	
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public List<ProductImageDTO> getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(List<ProductImageDTO> productImage) {
+		this.productImage = productImage;
 	}
 	
 }

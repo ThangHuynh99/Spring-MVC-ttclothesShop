@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.converter.OrderConverter"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
 <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.OrderEntity"/>
@@ -25,8 +23,6 @@
 <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 <fullyQualifiedTypeName name="javax.persistence.Column"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.Product_SizeRepository"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductSizeKey"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.awt.print.Pageable"/>
@@ -55,9 +51,13 @@
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.api.input.ProductInput"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dto.ProductDTO"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductSizeEntity"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.ProductSizeRepository"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductImageEntity"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.Product_Size_Entity"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductSizeKey"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.Product_SizeRepository"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.ProductImageRepository"/>
 </qualifiedTypeNameHistroy>

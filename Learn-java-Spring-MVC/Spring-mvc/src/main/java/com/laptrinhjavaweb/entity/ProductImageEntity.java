@@ -9,7 +9,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "productimage")
 public class ProductImageEntity extends BaseEntity{
+	private static ProductImageEntity productImageEntity;
 	
+	public static ProductImageEntity getInstance() {
+		if(productImageEntity == null) {
+			productImageEntity = new ProductImageEntity();
+		}
+		return productImageEntity;
+	}
+	
+	public ProductImageEntity() {
+		
+	}
+
 	@Column(name = "file")
 	private String file;
 	

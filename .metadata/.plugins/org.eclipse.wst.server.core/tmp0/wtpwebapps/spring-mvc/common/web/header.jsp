@@ -41,20 +41,20 @@
 
 				<div class="right-phone-box">
 					<p>
-						Call US :- <a href="#"> +84 090 54 89 20</a>
+						Di động :- <a href="#"> +84 090 54 89 20</a>
 					</p>
 				</div>
 				<div class="our-link">
 					<ul>
 						<security:authorize access="isAnonymous()">
-							<li><a href='<c:url value="/login"/> '>Login</a></li>
-							<li><a href='<c:url value="/register"/> '>Register</a></li>
-							<li><a href="#">Contact Us</a></li>
+							<li><a href='<c:url value="/login"/> '>Đăng nhập</a></li>
+							<li><a href='<c:url value="/register"/> '>Đăng ký</a></li>
+							<li><a href="#">Liên hệ</a></li>
 						</security:authorize>
 						<security:authorize access="isAuthenticated()">
 							<li><a href="#">Xin chào, <%=SecurityUtils.getPrincipal().getFullName()%></a></li>
 							<li><a href='<c:url value="/logout"/> '>Logout</a></li>
-							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Liên hệ</a></li>
 						</security:authorize>
 					</ul>
 
@@ -90,20 +90,19 @@
 		<ul class="nav navbar-nav ml-auto" data-in="fadeInDown"
 			data-out="fadeOutUp">
 			<li class="nav-item active"><a class="nav-link"
-				href='<c:url value="/home" />'>Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="about.html">About
-					Us</a></li>
+				href='<c:url value="/home" />'>Trang chủ</a></li>
+			<li class="nav-item"><a class="nav-link" href="about.html">Về chúng tôi</a></li>
 			<li class="dropdown"><a href="#"
-				class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+				class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Cửa hàng</a>
 				<ul class="dropdown-menu">
-					<li><a href='<c:url value="/cart" /> '>Cart</a></li>
-					<li><a href=<c:url value="/checkout" />>Checkout</a></li>
-					<li><a href="my-account.html">My Account</a></li>
+					<li><a href='<c:url value="/cart" /> '>Giỏ hàng</a></li>
+					<li><a href=<c:url value="/checkout" />>Thanh toán</a></li>
+					<li><a href="my-account.html">Tài khoản</a></li>
 				</ul></li>
-			<li class="nav-item"><a class="nav-link" href="service.html">Our
-					Service</a></li>
-			<li class="nav-item"><a class="nav-link" href="contact-us.html">Contact
-					Us</a></li>
+			<li class="nav-item"><a class="nav-link" href="service.html">Dịch vụ
+					</a></li>
+			<li class="nav-item"><a class="nav-link" href="contact-us.html">Liên hệ
+					</a></li>
 		</ul>
 	</div>
 	<!-- /.navbar-collapse -->

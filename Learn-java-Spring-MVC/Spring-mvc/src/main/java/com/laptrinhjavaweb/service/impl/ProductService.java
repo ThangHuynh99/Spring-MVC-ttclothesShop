@@ -16,11 +16,14 @@ import com.laptrinhjavaweb.entity.ProductBrandEntity;
 import com.laptrinhjavaweb.entity.ProductEntity;
 import com.laptrinhjavaweb.entity.ProductImageEntity;
 import com.laptrinhjavaweb.entity.ProductSizeEntity;
+import com.laptrinhjavaweb.entity.ProductSizeKey;
 import com.laptrinhjavaweb.entity.Product_Size_Entity;
 import com.laptrinhjavaweb.repository.CatalogRepository;
 import com.laptrinhjavaweb.repository.ProductBrandRepository;
+import com.laptrinhjavaweb.repository.ProductImageRepository;
 import com.laptrinhjavaweb.repository.ProductRepository;
 import com.laptrinhjavaweb.repository.ProductSizeRepository;
+import com.laptrinhjavaweb.repository.Product_SizeRepository;
 import com.laptrinhjavaweb.service.IProductService;
 
 @Service
@@ -36,6 +39,10 @@ public class ProductService implements IProductService{
 	private ProductBrandRepository productBrandRepository;
 	@Autowired
 	private ProductSizeRepository sizeRepository;
+	@Autowired
+	private Product_SizeRepository product_Size_Repository;
+	@Autowired
+	private ProductImageRepository imageRepository;
 	
 	@Override
 	public List<ProductDTO> findByCatalogId(String name, Pageable page) {
@@ -82,21 +89,38 @@ public class ProductService implements IProductService{
 	public ProductDTO saveOrUpdate(ProductDTO product) {
 		ProductEntity productEntity = new ProductEntity();
 		List<ProductImageEntity> productImage = new ArrayList();
+		//add new product
 		if(product.getId() == null) {
 			CatalogEntity catalogEntity = catalogRepository.findByCatalogCode(product.getCatalogCode());
 			ProductSizeEntity sizeEntity = sizeRepository.findBySize(product.getSize());
-			ProductImageEntity productImageEntity = new ProductImageEntity();
+			ProductImageEntity productImageEntity = ProductImageEntity.getInstance();
 			productImageEntity.setImageName(product.getImageName());
-			productImageEntity.setFile(product.getImageFile());
-			productImage.add(productImageEntity);
-			productEntity = productRepository.save(productConverter.toEntity(product));
+			productImageEntity.setFile(product.getImageFile());	
 			
+			productEntity =  productConverter.toEntity(product);
+			productEntity.setCatalog(catalogEntity);
 			
-			Product_Size_Entity product_size_Entity = new Product_Size_Entity();
+			//insert bảng product
+			productEntity = productRepository.save(productEntity);
+			
+			//insert bảng image
+			productImageEntity.setProduct(productEntity);
+			imageRepository.save(productImageEntity);
+			
+			//set key cho bang product_size_entity
+			ProductSizeKey productSizeKey = ProductSizeKey.getInstance();
+			productSizeKey.setProduct_id(productEntity.getId());
+			productSizeKey.setSize_id(sizeEntity.getId());
+			
+			Product_Size_Entity product_size_Entity = Product_Size_Entity.getInstance();
 			product_size_Entity.setProductss(productEntity);
 			product_size_Entity.setSizess(sizeEntity);
 			product_size_Entity.setQuantity(product.getQuantity());
-		} else {
+			product_size_Entity.setId(productSizeKey);
+			product_Size_Repository.save(product_size_Entity);	
+		} 
+		//update exist product
+		else {
 			
 		}
 		

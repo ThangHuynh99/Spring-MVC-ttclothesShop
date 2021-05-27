@@ -231,7 +231,7 @@
 														<div class="type-lb">
 															<p class="sale"></p>
 														</div>
-														 <c:forEach var="ite" items="${item.image}"> 
+														 <c:forEach var="ite" items="${item.productImage}"> 
 														<img src="<c:url value='/images/products/${ite.getFile() }'/>" class="img-fluid"
 															alt="Image">
 														</c:forEach> 

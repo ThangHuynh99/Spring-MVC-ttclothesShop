@@ -64,7 +64,7 @@
 															<td><input type="checkbox" id="checkBox_" value=""/></td>
 															<td style="font-size: 15px">${item.productName}</td>
 															<td style="font-size: 15px">${item.shortDescription}</td>
-															<td><img style="width: 60px; height: 60px" src="<c:url value='/images/products/${item.getImage().get(0).getFile() }'/>"/> </td> 
+															<td><img style="width: 60px; height: 60px" src="<c:url value='/images/products/${item.getProductImage().get(0).getFile() }'/>"/> </td> 
 															<td>
 																<c:url var="editURL" value="/admin/product/edit">
 																	<c:param name="id" value="${item.id}"/>

@@ -6,7 +6,6 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 	<script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>"></script>
-
 </head>
 <body>
 		<div class="main-content">

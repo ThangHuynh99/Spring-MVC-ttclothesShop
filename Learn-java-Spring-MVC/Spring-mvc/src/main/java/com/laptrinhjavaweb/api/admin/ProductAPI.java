@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.api.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,12 @@ public class ProductAPI {
 	
 	@PostMapping("/product")
 	public ProductDTO addProduct(@RequestBody ProductDTO product) {
+		ProductDTO productDTO = productService.saveOrUpdate(product);
+		return productDTO;
+	}
+	
+	@PutMapping("/product")
+	public ProductDTO updateProduct(@RequestBody ProductDTO product) {
 		ProductDTO productDTO = productService.saveOrUpdate(product);
 		return productDTO;
 	}

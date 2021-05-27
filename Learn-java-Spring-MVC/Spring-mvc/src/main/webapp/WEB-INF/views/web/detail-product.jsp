@@ -34,8 +34,7 @@
 								class="single-product-slider carousel slide"
 								data-ride="carousel">
 								<div class="carousel-inner" role="listbox">
-									<c:forEach var="item"
-										items="${productDetail.getProductImage() }">
+									<c:forEach var="item" items="${productDetail.getProductImage() }">
 										<div class="carousel-item active">
 											<img id="image" value="${item.getFile()}"
 												class="d-block w-100"

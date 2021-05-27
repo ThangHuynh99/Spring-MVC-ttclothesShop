@@ -3,6 +3,7 @@ encoding//database/insert.sql=UTF-8
 encoding//src/main/java/com/laptrinhjavaweb/converter/ProductConverter.java=UTF-8
 encoding//src/main/java/com/laptrinhjavaweb/dto/readme.rd=UTF-8
 encoding//src/main/java/com/laptrinhjavaweb/service/impl/OrderService.java=UTF-8
+encoding//src/main/java/com/laptrinhjavaweb/service/impl/ProductService.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/admin/sanpham/chitietSP.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/admin/sanpham/danhmuc.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/admin/sanpham/editSP.jsp=UTF-8

@@ -14,6 +14,13 @@ public class Product_Size_Entity {
 	
 	private static Product_Size_Entity productSizeEntity;
 	
+	public static Product_Size_Entity getInstance() {
+		if(productSizeEntity == null) {
+			productSizeEntity = new Product_Size_Entity();
+		}
+		return productSizeEntity;
+	}
+	
 	@EmbeddedId
 	private ProductSizeKey id;
 	
