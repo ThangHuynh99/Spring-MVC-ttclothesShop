@@ -20,13 +20,30 @@ public class ProductController {
 	private IProductService iProductService;
 
 	@RequestMapping(value = "/collection/{name}", method = RequestMethod.GET)
-	public ModelAndView showProductPage(@PathVariable(value = "name", required = false) String name, @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
-		ProductDTO productDTO = new ProductDTO();
+	public ModelAndView showProductPage(@PathVariable(value = "name", required = false) String name,
+			@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+			@RequestParam(value = "q", required = false, defaultValue = "") String q,
+			@RequestParam(value = "s", required = false, defaultValue = "0") double s) {
+		double startPrice = 0, endPrice = s;
 		ModelAndView mav = new ModelAndView("web/product");
-		Pageable pageable = new PageRequest(page-1, 6);
+		ProductDTO productDTO = new ProductDTO();
+		Pageable pageable = new PageRequest(page - 1, 6);
 		productDTO.setPage(page);
 		productDTO.setTotalPage((int) Math.ceil((double) iProductService.countTotalItem(name) / 6));
-		productDTO.setListResult(iProductService.findByCatalogId(name, pageable));
+		if (!q.equals("")) {
+			productDTO.setListResult(iProductService.findByCatalogIdAndProductNameContaining(name, q, pageable));
+		} else if (q.equals("") && s == 0) {
+			productDTO.setListResult(iProductService.findByCatalogId(name, pageable));
+		} else if (s > 0) {
+			if (s == 500000) {
+				startPrice = 100000;
+			} else if( s == 1000000) {
+				startPrice = 500100;
+			} else {
+				startPrice = endPrice - 999999;
+			}
+			productDTO.setListResult(iProductService.findBycatalogIdAndPriceBetween(name, startPrice, endPrice, pageable));
+		}
 		mav.addObject("products", productDTO);
 		mav.addObject("catalogcode", name);
 		return mav;
@@ -38,4 +55,5 @@ public class ProductController {
 		mav.addObject("productDetail", iProductService.findByProductCode(code));
 		return mav;
 	}
+
 }

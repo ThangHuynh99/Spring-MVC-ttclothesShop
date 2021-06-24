@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class WebConfig {
 
 	// model mapper
-	@Bean
+	@Bean(name="mapper")
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
 	}

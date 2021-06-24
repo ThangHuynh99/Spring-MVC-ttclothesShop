@@ -7,6 +7,7 @@ E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\sr
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\repository\ProductImageRepository.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\service\IProductService.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\entity\ProductSizeEntity.java
+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\api\input\ProductInput.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\entity\ProductImageEntity.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\dto\ProductDTO.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\dto\UserDTO.java
@@ -16,10 +17,12 @@ E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\sr
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\util\MessageUtil.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\dto\ProductSizeDTO.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\config\WebConfig.java
+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\controller\admin\CategoryController.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\service\IUserService.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\repository\RoleRepository.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\controller\web\CheckoutController.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\constant\SystemConstant.java
+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\repository\ProductBrandRepository.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\repository\ProductSizeRepository.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\converter\ProductConverter.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\dto\ProductColorDTO.java
@@ -44,6 +47,7 @@ E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\sr
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\api\web\CheckoutAPI.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\converter\OrderConverter.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\entity\UserEntity.java
+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\api\admin\CatalogAPI.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\dto\ProductBrandDTO.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\api\web\HomeAPI.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\service\impl\UserService.java
@@ -53,8 +57,10 @@ E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\sr
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\service\impl\OrderService.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\util\CheckCart.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\dto\MyUser.java
+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\controller\admin\ProductController.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\converter\Template.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\entity\ProductOrderEntity.java
+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\api\admin\ProductAPI.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\config\JPAConfig.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\converter\UserConverter.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\service\impl\CatalogService.java
@@ -65,4 +71,5 @@ E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\sr
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\entity\ProductOrderKey.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\repository\ProductRepository.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\controller\web\AuthenController.java
+E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\api\admin\BrandAPI.java
 E:\SPRING COURSE\TTClothes Shop (Spring-MVC)\Learn-java-Spring-MVC\Spring-mvc\src\main\java\com\laptrinhjavaweb\repository\ProductOrderRepository.java

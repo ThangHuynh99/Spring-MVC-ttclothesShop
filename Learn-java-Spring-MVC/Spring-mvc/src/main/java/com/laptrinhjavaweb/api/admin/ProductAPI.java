@@ -1,5 +1,7 @@
 package com.laptrinhjavaweb.api.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,15 +26,14 @@ public class ProductAPI {
 		return productDTO;
 	}
 	
-	@PutMapping("/product")
+	@PutMapping(value = "/product")
 	public ProductDTO updateProduct(@RequestBody ProductDTO product) {
 		ProductDTO productDTO = productService.saveOrUpdate(product);
 		return productDTO;
 	}
 	
 	@GetMapping("/product")
-	public ProductDTO editProduct(@RequestBody ProductInput product) {
-		
-		return null;
+	public List<ProductDTO> getProduct() {
+		return productService.findAll();
 	}
 }

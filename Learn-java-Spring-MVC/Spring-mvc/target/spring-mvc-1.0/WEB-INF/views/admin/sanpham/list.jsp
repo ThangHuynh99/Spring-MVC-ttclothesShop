@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Danh sách bài viết</title>
+<title>Danh sách sản phẩm</title>
 </head>
 <body>
 	<div class="main-content">

@@ -137,7 +137,6 @@
 			<script>        
        
        $('#btnAddCart').click(function(e){
-    	   
          	var	id = $('#id').val();
          	var	productImage = $('#image').attr("src");
          	var	price = $('#price').attr("data-value");

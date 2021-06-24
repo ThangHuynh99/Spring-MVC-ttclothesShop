@@ -31,9 +31,9 @@
 				<div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
 					<div class="product-categori">
 						<div class="search-product">
-							<form id="formSubmit2" action="#">
-								<input class="form-control" placeholder="Search here..."
-									type="text">
+							<form method="GET" id="formSubmit2" action="${request.getRequestURL()}">
+								<input class="form-control" placeholder="Search name..."
+									type="text" name="q">
 								<button type="submit">
 									<i class="fa fa-search"></i>
 								</button>
@@ -194,15 +194,18 @@
 						<div class="product-item-filter row">
 							<div class="col-12 col-sm-8 text-center text-sm-left">
 								<div class="toolbar-sorter-right">
-									<span>Sort by </span> <select id="basic"
+									<span>Sort by </span>
+									<form method="get" action="${request.getRequestURL()}" id="formPrice"> 
+									 <select id="priceS" name="s"
 										class="selectpicker show-tick form-control"
 										data-placeholder="$ USD">
-										<option data-display="Select">Nothing</option>
-										<option value="1">Popularity</option>
-										<option value="2">High Price</option>
-										<option value="3">Low Price</option>
-										<option value="4">Best Selling</option>
+										<option data-display="Select">All price</option>
+										<option value="500000" >100.000 - 500.000 đ</option>
+										<option value="1000000" >501.000 - 1.000.000 đ</option>
+										<option value="2000000" >1.001.000 - 2.000.000 đ</option>
+										<option value="3000000" >2.001.000 - 3.000.000 đ</option>
 									</select>
+									</form>
 								</div>
 								 <p>Showing all results</p> 
 							</div>
@@ -261,8 +264,8 @@
 									</div>
 								</div>
 								<form method="get" id="formSubmit" action="<c:url value='/collection/${catalogcode}'/>">
-								<ul style="padding-left: 250px" class="pagination" id="pagination"></ul>
-								<input type="hidden" value="" id="page" name="page" /> 
+									<ul style="padding-left: 250px" class="pagination" id="pagination"></ul>
+									<input type="hidden" value="" id="page" name="page" /> 
 								</form>
 							</div>
 						</div>
@@ -293,6 +296,11 @@
 			}
 		})
 	});
+	
+	$("#priceS").on('change',function() {
+		
+		$("#formPrice").submit();
+	})
 		</script>
 </body>
 </html>

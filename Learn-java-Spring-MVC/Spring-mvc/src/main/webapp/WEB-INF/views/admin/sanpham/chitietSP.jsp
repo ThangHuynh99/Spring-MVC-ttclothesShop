@@ -35,7 +35,7 @@
 										 <!-- 	data-toggle="tooltip" --> 
 											<button id="btnDelete" type="button" onclick="warningBeforeDelete()"
 												class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-												data-toggle="tooltip" title='Xóa bài viết'>
+												data-toggle="tooltip" title='Xóa sản phẩm'>
 												<span> <i class="fa fa-trash-o bigger-110 pink"></i>
 												</span>
 											</button>

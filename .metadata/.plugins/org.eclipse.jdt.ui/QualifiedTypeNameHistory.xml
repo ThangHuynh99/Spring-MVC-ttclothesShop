@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.transaction.Transactional"/>
 <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.OrderEntity"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dto.GioHangDTO"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.ProductRepository"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.converter.ProductConverter"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.ProductOrderRepository"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductOrderKey"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductOrderEntity"/>
@@ -36,28 +34,30 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.controller.admin.ProductController"/>
 <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
-<fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.service.ICatalogService"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dto.CatalogDTO"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductEntity"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.CatalogEntity"/>
 <fullyQualifiedTypeName name="org.hibernate.criterion.SizeExpression"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.service.IProductService"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.api.input.ProductInput"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.dto.ProductDTO"/>
-<fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductSizeEntity"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.ProductSizeRepository"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductImageEntity"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.Product_Size_Entity"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductSizeKey"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.Product_SizeRepository"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="com.laptrinhjavaweb.repository.ProductImageRepository"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.CatalogEntity"/>
+<fullyQualifiedTypeName name="com.laptrinhjavaweb.entity.ProductSizeEntity"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
 </qualifiedTypeNameHistroy>
