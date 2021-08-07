@@ -39,7 +39,7 @@
 						<div class="form-group">
 							  <label for="categoryCode" class="col-sm-3 control-label no-padding-right">Loại sản phẩm</label>
 							  <div class="col-sm-9">
-							  	 <select  name="categoryCode" id="categoryCode">
+							  	 <select  name="catalogCode" id="catalogCode">
 							  	   <c:if test="${empty product.getCatalog().getCatalogCode()}">
                                             <option value="">Chọn loại sản phẩm</option>
                                             <c:forEach var="item" items="${catalog}">
@@ -81,7 +81,7 @@
 						<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tên ảnh</label>
 								<div class="col-sm-9">
-									<input type="input" class="col-xs-10 col-sm-5" id="image" name="imageName"/>
+									<input type="input" class="col-xs-10 col-sm-5" id="image" name="imageName" value="${product.imageName}"/>
 								</div>
 						</div>
 						<div class="form-group">
@@ -176,9 +176,11 @@
 	            data[""+v.name+""] = v.value;
 	        });
 			var id = $('#productId').val(); 
+			data["price"] = + ($("#price").val()).slice(0, ($("#price").val()).length - 1) * 1000;
 		    if (id === "") {
 		    	addProduct(data);
 		    } else {
+		    	console.log(JSON.stringify(data));
 		    	updateProduct(data);
 		    }
 		});
@@ -198,20 +200,21 @@
 				})
 			}
 				
-			function updateProduct(data) {
+			function updateProduct(data){
 				$.ajax({
-		            url: '/api/product',
-		            type: 'PUT',
-		            contentType: 'application/json',
-		            data: JSON.stringify(data),
-		            dataType: 'json',
-		            success: function (result) {
-		            	alert("Chỉnh sửa sản phẩm thành công !")
-		            },
-		            error: function (error) {
-		            	console.log(error)
-		            }
-		        });
+					url: "/api/product",
+					type: "PUT",
+	        		contentType: "application/json",
+					data: JSON.stringify(data),
+					success: function (result) {
+	                	alert("Chỉnh sửa sản phẩm thành công !")
+	                	window.location.href = "http://localhost:8080/admin/product/edit?id="+result.id;
+	               },
+	               error: function (error) {
+	            	    alert("Đã có lỗi xảy ra !");
+	               		console.log(error)
+	               }
+				})
 			}
 			
 		</script>	

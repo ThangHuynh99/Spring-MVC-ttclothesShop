@@ -186,16 +186,32 @@
 			function addProduct(data){
 				$.ajax({
 					url: "/api/product",
-					type: 'POST',
-	        		contentType: 'application/json',
+					type: "POST",
+	        		contentType: "application/json",
 					data: JSON.stringify(data),
 					success: function (result) {
-	                	alert("Them san pham thanh cong !")
+	                	alert("Thêm sản phẩm thành công !")
 	               },
 	               error: function (error) {
 	               		console.log(error)
 	               }
 				})
+			}
+				
+			function updateProduct(data) {
+				$.ajax({
+		            url: '/api/product',
+		            type: 'PUT',
+		            contentType: 'application/json',
+		            data: JSON.stringify(data),
+		            dataType: 'json',
+		            success: function (result) {
+		            	alert("Chỉnh sửa sản phẩm thành công !")
+		            },
+		            error: function (error) {
+		            	console.log(error)
+		            }
+		        });
 			}
 			
 		</script>	

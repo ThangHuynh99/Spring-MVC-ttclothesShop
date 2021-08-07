@@ -7,6 +7,7 @@ import org.hibernate.criterion.SizeExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.laptrinhjavaweb.api.input.ProductInput;
 import com.laptrinhjavaweb.converter.ProductConverter;
@@ -70,6 +71,7 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
+	@Transactional
 	public ProductDTO save(ProductDTO product) {
 		ProductEntity entity = new ProductEntity();
 		entity = productConverter.toEntity(product);
@@ -88,6 +90,7 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
+	@Transactional
 	public ProductDTO saveOrUpdate(ProductDTO product) {
 		ProductEntity productEntity = new ProductEntity();
 		CatalogEntity catalogEntity = new CatalogEntity();
@@ -128,26 +131,27 @@ public class ProductService implements IProductService {
 		else {
 			catalogEntity = catalogRepository.findByCatalogCode(product.getCatalogCode());
 			productEntity = productRepository.findOne(product.getId());
+//			productImageEntity = imageRepository.findOne(productEntity.getImage().get(0).getId());
 			productEntity = productConverter.toEntity(product);
+			productEntity.setId(product.getId());
 			productEntity.setCatalog(catalogEntity);
 			productRepository.save(productEntity);
 
-			productImageEntity = imageRepository.findOne(product.getProductImage().get(0).getId());
-			productImageEntity.setImageName(product.getImageName());
-			productImageEntity.setFile(product.getImageFile());
-			imageRepository.save(productImageEntity);
+//			productImageEntity.setImageName(product.getImageName());
+//			productImageEntity.setFile(product.getImageFile());
+//			imageRepository.save(productImageEntity);
 
 			sizeEntity = sizeRepository.findBySize(product.getSize());
 			ProductSizeKey productSizeKey = ProductSizeKey.getInstance();
-			productSizeKey.setProduct_id(productEntity.getId());
+			productSizeKey.setProduct_id(product.getId());
 			productSizeKey.setSize_id(sizeEntity.getId());
 
 			product_size_Entity = product_Size_Repository.findOne(productSizeKey);
 			product_size_Entity.setQuantity(product.getQuantity());
 			product_Size_Repository.save(product_size_Entity);
 		}
-
-		return productConverter.toDTO(productEntity);
+		ProductDTO dto = productConverter.toDTO(productEntity);
+		return dto;
 	}
 
 	@Override
@@ -177,10 +181,10 @@ public class ProductService implements IProductService {
 		CatalogEntity catalog = catalogRepository.findByCatalogCode(catalogCode);
 		List<ProductEntity> productEntity = productRepository.findBycatalogIdAndPriceBetween(catalog.getId(),
 				startPrice, endPrice, page);
+		
 		for (ProductEntity item : productEntity) {
 			this.productDTO.add(productConverter.toDTO(item));
 		}
 		return this.productDTO;
 	}
-
 }

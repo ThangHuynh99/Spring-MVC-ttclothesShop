@@ -2,6 +2,7 @@ com\laptrinhjavaweb\service\IProductService.class
 com\laptrinhjavaweb\entity\ProductOrderKey.class
 com\laptrinhjavaweb\repository\OrderRepository.class
 com\laptrinhjavaweb\repository\CatalogRepository.class
+com\laptrinhjavaweb\config\SpringFoxConfig.class
 com\laptrinhjavaweb\dto\OrderDTO.class
 com\laptrinhjavaweb\entity\ProductImageEntity.class
 com\laptrinhjavaweb\controller\web\AuthenController.class

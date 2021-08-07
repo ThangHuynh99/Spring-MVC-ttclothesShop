@@ -32,4 +32,13 @@ public class ProductConverter {
 		return productEntity;
 	}
 	
+	public ProductEntity toEntity(ProductDTO product, ProductEntity entity) {
+		entity.setPrice(product.getPrice());
+		entity.setContent(product.getContent());
+		entity.setProductName(product.getProductName());
+		entity.setProductCode(product.getProductCode());
+		entity.setProductColor(product.getProductColor());
+		entity.setShortDescription(product.getShortDescription());
+		return entity;
+	}
 }
